@@ -1,17 +1,17 @@
 $(function(){
-	$(".win-homepage").click(function(){ 
+	$(".win-homepage").click(function(){
         if(document.all){
-        document.body.style.behavior = 'url(#default#homepage)'; 
-        document.body.setHomePage(document.URL); 
-        }else{alert("设置首页失败，请手动设置！");} 
+        document.body.style.behavior = 'url(#default#homepage)';
+        document.body.setHomePage(document.URL);
+        }else{alert("设置首页失败，请手动设置！");}
 	});
 	$(".win-favorite").click(function(){
-		var sURL=document.URL; 
-		var sTitle=document.title; 
-		try {window.external.addFavorite(sURL, sTitle);} 
-		catch(e){ 
-			try{window.sidebar.addPanel(sTitle, sURL, "");} 
-			catch(e){alert("加入收藏失败，请使用Ctrl+D进行添加");} 
+		var sURL=document.URL;
+		var sTitle=document.title;
+		try {window.external.addFavorite(sURL, sTitle);}
+		catch(e){
+			try{window.sidebar.addPanel(sTitle, sURL, "");}
+			catch(e){alert("加入收藏失败，请使用Ctrl+D进行添加");}
 		}
 	});
 	$(".win-forward").click(function(){
@@ -50,7 +50,7 @@ $(function(){
 				element.checked=false;
 			});
 			e.attr("name","checkall");
-		}	
+		}
 	});
 	$('.dropdown-toggle').click(function(){
 		$(this).closest('.button-group, .drop').addClass("open");
@@ -87,7 +87,7 @@ $(function(){
 	var $hideplaceholder=function(element){
 		if($(element).data("pintuerholder")){
 			$(element).val("");
-			$(element).css("color", $(element).data("pintuerholder"));		
+			$(element).css("color", $(element).data("pintuerholder"));
 			$(element).removeData("pintuerholder");
 		}
 	};
@@ -245,7 +245,7 @@ $(function(){
 		var detail="";
 		var masklayout=$('<div class="dialog-mask"></div>');
 		if(width==null){width="80%";}
-		
+
 		if (mask=="1"){
 			$("body").append(masklayout);
 		}
@@ -253,7 +253,7 @@ $(function(){
 		if(getid!=null){detail=detail+$(getid).html();}
 		if(data!=null){detail=detail+$.ajax({url:data,async:false}).responseText;}
 		detail=detail+'</div>';
-		
+
 		var win=$(detail);
 		win.find(".dialog").addClass("open");
 		$("body").append(win);
@@ -305,7 +305,7 @@ $(function(){
 		var y=0;
 		var html="";
 		var detail="";
-		
+
 		if(image!=null){detail=detail+'<img class="image" src="'+image+'" />';}
 		if(content!=null){detail=detail+'<p class="tip-body">'+content+'</p>';}
 		if(getid!=null){detail=detail+$(getid).html();}
@@ -399,17 +399,17 @@ $(function(){
 		var page=Math.ceil(num/items);
 		e.find(".carousel .item").css("width",itemWidth+ "px");
 		e.find(".carousel").css("width",itemWidth*num + "px");
-		
+
 		var carousel=function(){
 			i++;
 			if(i>page){i=1;}
 			$showbanner(e,i,items,num);
 		};
 		var play=setInterval(carousel,interval*600);
-		
+
 		e.mouseover(function(){clearInterval(play);});
 		e.mouseout(function(){play=setInterval(carousel,interval*600);});
-		
+
 		if(pointer!=0 && page>1){
 			var point='<ul class="pointer"><li value="1" class="active"></li>';
 			for (var j=1;j<page;j++){
@@ -428,7 +428,7 @@ $(function(){
 			if(style!=null){lefter.addClass(style);righter.addClass(style);};
 			e.append(lefter);
 			e.append(righter);
-			
+
 			lefter.click(function(){
 				i--;
 				if(i<1){i=page;}
@@ -440,7 +440,7 @@ $(function(){
 				$showbanner(e,i,items,num);
 			});
 		};
-	});	
+	});
 	$showbanner=function(e,i,items,num){
 		var after=0,leftx=0;
 		leftx = - Math.ceil(e.outerWidth()/items)*(items)*(i-1);
@@ -458,14 +458,14 @@ $(function(){
 		var thistop="";
 		if(top==null){top=0;};
 		if(target==null){thistarget=$(window);}else{thistarget=$(target);};
-		
+
 		thistarget.bind("scroll",function(){
 			if(target==null){
-				thistop=$(e.attr("href")).offset().top - $(window).scrollTop() - parseInt(top);	
+				thistop=$(e.attr("href")).offset().top - $(window).scrollTop() - parseInt(top);
 			}else{
 				thistop=$(e.attr("href")).offset().top - thistarget.offset().top - parseInt(top);
 			};
-	
+
 			if(thistop<0){
 				t.find('li').removeClass("active");
 				e.parents('li').addClass("active");
@@ -479,7 +479,7 @@ $(function(){
 		var top=e.attr("data-offset-fixed");
 		if(top==null){top=e.offset().top;}else{top=e.offset().top - parseInt(top);};
 		if(style==null){style="fixed-top";};
-		
+
 		$(window).bind("scroll",function(){
 			var thistop=top - $(window).scrollTop();
 			if(style=="fixed-top" && thistop<0){
@@ -487,7 +487,7 @@ $(function(){
 			}else{
 				e.removeClass("fixed-top");
 			};
-			
+
 			var thisbottom=top - $(window).scrollTop()-$(window).height();
 			if(style=="fixed-bottom" && thisbottom>0){
 				e.addClass("fixed-bottom");
@@ -495,7 +495,5 @@ $(function(){
 				e.removeClass("fixed-bottom");
 			};
 		});
-
 	});
-
 })

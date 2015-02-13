@@ -22,9 +22,9 @@ $up_start = micro_time_float();
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>PHP探针-UPUPW绿色服务器平台NGINX专用版</title>
-<meta name="keywords" content="PHP探针,PHP组件,UPUPW,UPUPW集成包,nginx php,ZendGuardLoader,ionCube,memcache,XCache,WinCache,SendMail" />
-<meta name="description" content="UPUPW绿色服务器平台NGINX专用版PHP探针可检测ZendGuardLoader,ionCube,memcache,XCache,WinCache和SendMail等PHP组件." />
+<title>PHP探针-UPUPW环境集成包APACHE专用版</title>
+<meta name="keywords" content="PHP探针,PHP组件,UPUPW,UPUPW集成包,apache php,ionCube,memcache,APC,SendMail" />
+<meta name="description" content="UPUPW环境集成包APACHE专用版PHP探针可检测ionCube,memcache,APC,SendMail等PHP组件." />
 <meta name="author" content="UPUPW" />
 <meta name="reply-to" content="webmaster@upupw.net" />
 <meta name="copyright" content="UPUPW Team" />
@@ -99,7 +99,7 @@ a.arrow:hover {color:#ff0000;text-decoration:none;}
   <tr>
     <td class="er">软件管理设置</td>
     <td class="fl">
-    <a target="_blank" href='<?=_SERVER('PHP_SELF')?>?act=phpinfo'>PHP详细信息</a> | <a target="_blank" href="/pmd/">MySQL管理</a>
+    <a target="_blank" href='<?=_SERVER('PHP_SELF')?>?act=phpinfo'>PHP详细信息</a> | <a target="_blank" href="/pmd">phpMyAdmin管理</a>
     </td>
   </tr>
 </table>
@@ -117,6 +117,10 @@ a.arrow:hover {color:#ff0000;text-decoration:none;}
     <td class="fl"><?=phpversion('pdo_sqlite') ? YES : NO ?></td>
   </tr>
   <tr>
+    <td class="er">SQLServer Client组件</td>
+    <td class="fl"><?=function_exists('sqlsrv_close') ? YES : NO ?></td>
+  </tr>
+  <tr>
     <td class="er">GD library组件</td>
     <td class="fl"><?=function_exists('gd_info') ? YES : NO ?></td>
   </tr>
@@ -125,13 +129,9 @@ a.arrow:hover {color:#ff0000;text-decoration:none;}
     <td class="fl"><?=phpversion('exif') ? YES : NO ?></td>
   </tr>
   <tr>
-    <td class="er">OpenSSL协议组件</td>
-    <td class="fl"><?=function_exists('openssl_open') ? YES : NO ?></td>
+    <td class="er">oAuth协议组件</td>
+    <td class="fl"><?=phpversion('oAuth') ? YES : NO ?></td>
   </tr> 
-  <tr>
-    <td class="er">Mcrypt加密处理组件</td>
-    <td class="fl"><?=function_exists('mcrypt_cbc') ? YES : NO ?></td>
-  </tr>
   <tr>
     <td class="er" >IMAP电子邮件函数库</td>
     <td class="fl"><?=function_exists('imap_close') ? YES : NO ?></td>
@@ -144,25 +144,24 @@ a.arrow:hover {color:#ff0000;text-decoration:none;}
 
 <table width="100%" class="inp">
 <tr>
-<td colspan="2" class="ec" width="50%">PHP Zend解密组件</td>
-<td colspan="3" class="ec">PHP 缓存优化组件</td>
+<td colspan="1" class="ec" width="25%">PHP 多线程组件</td>
+<td colspan="1" class="ec" width="25%">PHP Zend解密组件</td>
+<td colspan="2" class="ec">PHP 缓存优化组件</td>
 </tr>
 <tr>
-<td class="el">Zend Guard Loader</td>
+<td class="el">PHP Pthreads</td>
 <td class="el">ionCube Loader</td>
-<td class="el">XCache</td>
-<td class="el">WinCache</td>
+<td class="el" width="25%">APC</td>
 <td class="el">Memcache</td>
 </tr>
 <tr>
-<td class="fc"><?=function_exists('zend_loader_version') ? YES : NO ?></td>
+<td class="fc"><?=phpversion('Pthreads') ? YES : NO ?></td>
 <td class="fc"><?=function_exists('ionCube_Loader_version') ? YES : NO ?></td>
-<td class="fc"><?=phpversion('XCache') ? YES : NO ?></td>
-<td class="fc"><?=phpversion('wincache') ? YES : NO ?></td>
+<td class="fc"><?=phpversion('APC') ? YES : NO ?></td>
 <td class="fc"><?=function_exists('memcache_close') ? YES : NO ?></td>
 </tr>
 <tr>
-  <td colspan="5" class="ft">UPUPW NGINX版<?=PHP_SAPI .' PHP/'.PHP_VERSION?>系列全部包含以上组件，但默认并未全部开启，请根据需要在UPUPW面板PHP功能选项里配置</td>
+  <td colspan="4" class="ft">UPUPW APACHE版<?=PHP_SAPI .' PHP/'.PHP_VERSION?>系列全部包含以上组件，默认未开启的请根据需要在UPUPW面板PHP功能选项里配置</td>
   </tr>
 </table>
 
@@ -190,7 +189,7 @@ foreach ($able as $key=>$value) {
   <tr>
     <th colspan="4">MySQL 连接测试</th>
   </tr>
-  <tr>
+   <tr>
     <td colspan="4" class="ft">请及时登录phpMyAdmin修改数据库默认用户名和密码</td>
   </tr>
   <tr>
