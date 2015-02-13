@@ -8,5 +8,5 @@ return array(
 	'DB_PORT'=>3306,
 	'DB_NAME'=>'ruigui',
 	'DB_CHARSET' => 'utf8',
-	'DB_PREFIX'=>'dux_',
+	'DB_PREFIX'=>'rg_',
 );
