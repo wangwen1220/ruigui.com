@@ -2,9 +2,10 @@ node_modules/
 .svn/
 .idea/
 # up-rewrite.conf
-# u.php
+u.php
 .project
 .build
 .cache
 .DS_Store
 Thumbs.db
+.TMP
