@@ -1,4 +1,4 @@
-<?php exit;?>001456448045cf089fb552f2d7c5b0967cd6773e87f4s:1712:"a:2:{s:8:"template";s:1648:"<form method="post">
+<?php exit;?>0014565936514490426a9786bc47f6109668c82e621as:1712:"a:2:{s:8:"template";s:1648:"<form method="post">
     <div class="panel dux-box">
         <div class="table-responsive">
             <table id="table" class="table table-hover ">
@@ -33,4 +33,4 @@
     Do.ready('base', function () {
        $('#table').duxTable({});
     });
-</script>";s:12:"compile_time";i:1424912045;}";
+</script>";s:12:"compile_time";i:1425057651;}";

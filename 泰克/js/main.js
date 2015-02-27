@@ -98,17 +98,17 @@
     if ($.fn.slide) {
       // banner 幻灯片
       $('#banner').slide({
-        // titCell: '.hd ul',
+        titCell: '.hd ul',
         mainCell: '.bd ul',
         // trigger: 'click',
         effect: 'fold',
-        // autoPage: true,
+        autoPage: true,
         autoPlay: true
       });
 
       // 标签切换
       $('.js-tab-fade').slide({
-        titCell: '.m-tab-hd li',
+        titCell: '.m-tab-hd > ul > li',
         mainCell: '.m-tab-bd > ul',
         // trigger: 'click',
         effect: 'fold'
