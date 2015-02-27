@@ -320,7 +320,7 @@ textarea[contenteditable] {
 /* =Layout
 ----------------------------------------------------------------------------- */
 /* Common */
-.wrapper {
+.g-wrap {
   width: 1000px;
   margin: 0 auto;
 }

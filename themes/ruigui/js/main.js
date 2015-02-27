@@ -32,6 +32,15 @@
 
   // 加载脚本
   var loads = $id('headjs').getAttribute('data-loads').split(', ');
+  var headnode = $id('headjs');
+  var headconf = {
+    base: headnode.getAttribute('data-base') || '',
+    position: headnode.getAttribute('data-position'),
+    files: {
+      'home': 'jquery'
+    }
+  }
+
   head.load(loads, function() {
     // 通用变量
     var $win = $(win);
