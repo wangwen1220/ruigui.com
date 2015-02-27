@@ -7,9 +7,11 @@
 
 // Main
 (function(win, undefined) {
+  'use strict';
+
   // Helper
   // var nav = win.navigator;
-  var loc = win.location;
+  // var loc = win.location;
   var doc = win.document;
   var html = doc.documentElement;
 
@@ -28,13 +30,17 @@
     return isString(id) ? document.getElementById(id) : id;
   };
 
-  // 防盗链
-  if (loc.hostname !== 'ruigui-electronic.com' && loc.hostname.indexOf('.ruigui-electronic.com') === -1) {
-    alert('为防止 ruigui-electronic.com 服务器崩溃，请勿直接引用脚本文件！你应该把文件放到自己服务器并引用，谢谢合作。');
-  }
-
   // 加载脚本
   var loads = $id('headjs').getAttribute('data-loads').split(', ');
+  var headnode = $id('headjs');
+  var headconf = {
+    base: headnode.getAttribute('data-base') || '',
+    position: headnode.getAttribute('data-position'),
+    files: {
+      'home': 'jquery'
+    }
+  }
+
   head.load(loads, function() {
     // 通用变量
     var $win = $(win);
