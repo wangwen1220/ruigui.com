@@ -31,7 +31,7 @@
   };
 
   // 加载脚本
-  var loads = $id('headjs').getAttribute('data-loads').split(', ');
+  // var loads = $id('headjs').getAttribute('data-loads').split(', ');
   var headconf = {
     // headjs node
     node: $id('headjs'),
@@ -65,12 +65,13 @@
     maps: {
       'common': ['jquery', 'easing'],
       'home': ['jquery', 'easing', 'superslide'],
-      'products': ['jquery', 'easing', 'superslide']
+      'products': ['jquery', 'easing', 'superslide'],
+      'news': ['jquery', 'easing', 'superslide']
     },
 
     files: function() {
       // 用于标识页面要加载哪些文件
-      var map = this.node.getAttribute('data-map');
+      var map = this.node.getAttribute('data-map') || 'common';
       var mapalias = this.maps[map];
       var alias = this.alias();
       var files = [];
@@ -82,8 +83,8 @@
       return files;
     }
   }
-  // console.log(headconf.files());
 
+  // console.log(headconf.files());
   head.load(headconf.files(), function() {
     // 通用变量
     var $win = $(win);
@@ -136,11 +137,14 @@
     //   });
     // });
 
+
     // init superslide
-    $('#m-sld').slide({
-      mainCell: '.bd ul',
-      autoPlay: true
-    });
+    if ($.fn.slide) {
+      $('#m-sld').slide({
+        mainCell: '.bd ul',
+        autoPlay: true
+      });
+    }
 
     // 页脚固底
     (function() {

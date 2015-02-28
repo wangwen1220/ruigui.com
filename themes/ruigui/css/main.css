@@ -1080,8 +1080,8 @@ button.u-btn {
   background: #cc1c23;
 }
 
-/* browserupgrade for ie8- */
-.browserupgrade {
+/* browser-upgrade for ie8- */
+.browser-upgrade {
   padding: 8px 0;
   border-color: #EBCCD1;
   background-color: #F2DEDE;
@@ -1089,7 +1089,7 @@ button.u-btn {
   color: #A94442;
   font-size: 14px;
 }
-.browserupgrade a {
+.browser-upgrade a {
   color: #A94442;
   font-weight: bold;
   text-decoration: underline;
