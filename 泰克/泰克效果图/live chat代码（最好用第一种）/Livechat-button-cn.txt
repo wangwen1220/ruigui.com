@@ -1,9 +1,0 @@
-<div id="LiveChat_1417504055"></div>
-
-<script type="text/javascript">
-	var __lc_buttons = __lc_buttons || [];
-	__lc_buttons.push({
-		elementId: 'LiveChat_1417504055',
-		skill: '3'
-	});
-</script>

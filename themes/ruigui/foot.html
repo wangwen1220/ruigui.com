@@ -1,3 +1,12 @@
 <div class="g-ft">
 <!--echo{app="DuxCms" label="fragment" mark="foot" }-->
-<p>Copyright © 2011-2014 DuxCms</p></div>
+<nav>
+  <ul>
+    <li><a href="__ROOT__/">Home</a></li>
+    <!--list{app="DuxCms" label="categoryList" limit=5 parent_id=0 }-->
+    <li><a href="{$list.curl}">{$list.name}</a></li>
+    <!--{/list}-->
+  </ul>
+</nav>
+<p>Copyright © Guangzhou Ruigui Electronic Firm. All rights reserved.</p>
+</div>

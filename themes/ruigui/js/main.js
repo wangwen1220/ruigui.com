@@ -32,16 +32,59 @@
 
   // 加载脚本
   var loads = $id('headjs').getAttribute('data-loads').split(', ');
-  var headnode = $id('headjs');
   var headconf = {
-    base: headnode.getAttribute('data-base') || '',
-    position: headnode.getAttribute('data-position'),
-    files: {
-      'home': 'jquery'
+    // headjs node
+    node: $id('headjs'),
+
+    // headjs 的基础路径
+    base: function() {
+      return this.node.src.slice(0, this.node.src.lastIndexOf('/') + 1);
+    },
+
+    // 路径配置
+    paths: {
+      'public': '/public/'
+    },
+
+    // 别名配置
+    alias: function() {
+      return {
+        'jquery': this.base() + 'jquery-1.11.2.js',
+        'easing': this.base() + 'jquery-easing.js',
+        'superslide': this.base() + 'jquery-superslide.js'
+      };
+    },
+
+    // 预加载项
+    // preload: [
+    //   Function.prototype.bind ? '' : 'es5-safe',
+    //   this.JSON ? '' : 'json'
+    // ],
+
+    // 每个页面要加载的文件映射
+    maps: {
+      'common': ['jquery', 'easing'],
+      'home': ['jquery', 'easing', 'superslide'],
+      'products': ['jquery', 'easing', 'superslide']
+    },
+
+    files: function() {
+      // 用于标识页面要加载哪些文件
+      var map = this.node.getAttribute('data-map');
+      var mapalias = this.maps[map];
+      var alias = this.alias();
+      var files = [];
+
+      for (var i = 0; i < mapalias.length; i++) {
+        files.push(alias[mapalias[i]]);
+      }
+
+      return files;
     }
   }
+  // console.log(headconf.files());
 
-  head.load(loads, function() {
+  head.load(headconf.files(), function() {
     // 通用变量
     var $win = $(win);
     var $html = $(html);
