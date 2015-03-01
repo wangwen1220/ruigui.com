@@ -1,0 +1,46 @@
+<!doctype html>
+<html class="home no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{$media.title}</title>
+  <meta name="keywords" content="{$media.keywords}">
+  <meta name="description" content="{$media.description}">
+  <link href="css/main.css" rel="stylesheet">
+  <script src="js/head.js" id="headjs" data-headjs-load="__TPL__/js/main.js" data-map="home"></script>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <!--[if lt IE 8]><p class="browser-upgrade">似乎您正在使用 Internet Explorer 的一个<strong>老旧</strong>的版本。建议您<a href="http://browsehappy.com/">升级浏览器</a>以达到更好的浏览体验。</p><![endif]-->
+
+  <header id="header">
+    <div class="g-wrap">
+      <div class="logo"><a href="/"><img src="images/logo.png"></a></div>
+      <!-- <div class="m-search">
+        <form action="{url('Article/Search/index')}" method="post">
+          <div class="slectbox">
+            <select name="model">
+              <option value="0">标题</option>
+              <option value="1">全文</option>
+            </select>
+          </div>
+          <input name="keyword" type="text" maxlength="20">
+          <button>搜索</button>
+        </form>
+      </div> -->
+    </div>
+
+    <nav>
+      <ul class="g-wrap">
+        <li><a <!--if{!$topCategoryInfo['class_id']}--> class="u-crt" <!--{/if}--> href="__ROOT__/">Home</a></li>
+        <!--list{app="DuxCms" label="categoryList" limit=5 parent_id=0  }-->
+        <li><a href="{$list.curl}" <!--if{$list['class_id']==$topCategoryInfo['class_id']}--> class="u-crt" <!--{/if}-->>{$list.name}</a></li>
+        <!--{/list}-->
+        <li><a href='http://malu.en.alibaba.com/' target="_blank">Alibaba</a></li>
+        <!-- <li><a href='{url("DuxCms/Form/index",array("name"=>'guestbook'))}'>留言板</a></li> -->
+      </ul>
+    </nav>
+  </header>
