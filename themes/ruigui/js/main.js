@@ -89,6 +89,8 @@
     // 通用变量
     var $win = $(win);
     var $html = $(html);
+    var $header = $('#header');
+    var $main = $('#main');
     var animationend = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
 
     // 动画完成后删除类
@@ -107,17 +109,22 @@
     // });
 
     // 转到
-    // $scrollnav.on('click', 'a', function() {
+    // $header.on('click', 'nav a', function() {
     //   var $this = $(this);
-    //   var filter = $this.attr('href').replace('#', '.');
+    //   var hash = $this.attr('href');
 
-    //   // $this.addClass('on').parent().siblings().find('a').removeClass('on');
+    //   // 如果不是单面链接则不处理
+    //   if (!/^#.+/.test(hash)) return;
+
+    //   hash = hash.replace('#', '.');
+    //   $this.addClass('on').parent().siblings().find('a').removeClass('on');
 
     //   $('html, body').animate({
-    //     scrollTop: $sections.filter(filter).offset().top
+    //     scrollTop: $main.find(hash).offset().top
     //   }, 'swing', function() {
     //     $this.addClass('on').parent().siblings().find('a').removeClass('on');
     //   });
+
     //   return false;
     // });
 
@@ -138,8 +145,18 @@
     // });
 
 
-    // init superslide
+    // superslide
     if ($.fn.slide) {
+      // // banner 幻灯片
+      // $('#banner').slide({
+      //   titCell: '.hd ul',
+      //   mainCell: '.bd ul',
+      //   // trigger: 'click',
+      //   effect: 'fold',
+      //   autoPage: true,
+      //   autoPlay: true
+      // });
+
       $('#m-sld').slide({
         mainCell: '.bd ul',
         autoPlay: true
