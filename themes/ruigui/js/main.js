@@ -42,9 +42,9 @@
     },
 
     // 路径配置
-    paths: {
-      'public': '/public/'
-    },
+    // paths: {
+    //   'public': '/public/'
+    // },
 
     // 别名配置
     alias: function() {

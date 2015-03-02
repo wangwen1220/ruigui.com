@@ -251,6 +251,7 @@ body {
 }
 .table td {
     vertical-align: middle;
+    word-break: break-all;
 }
 .alert {
     margin-bottom: 20px;
