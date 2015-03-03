@@ -90,13 +90,20 @@
     var $win = $(win);
     var $html = $(html);
     var $header = $('#header');
+    var $nav = $('#nav');
     var $main = $('#main');
+    var $footer = $('#footer');
     var animationend = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
 
     // 动画完成后删除类
     // $win.on(animationend, function() {
     //   $sections.find('.animated').removeClass('animated bounceIn bounceInUp bounceInRight swing');
     // });
+
+    // 添加 hover.css 动画类
+    $nav.find('a').not('.current').addClass('hvr-fade');
+    $header.find('.logo').addClass('hvr-buzz-out');
+    $header.find('.search button').addClass('hvr-wobble-bottom');
 
     // 返回顶部
     // $('#toolbar').on('click', '.gotop', function() {
@@ -147,25 +154,20 @@
 
     // superslide
     if ($.fn.slide) {
-      // // banner 幻灯片
-      // $('#banner').slide({
-      //   titCell: '.hd ul',
-      //   mainCell: '.bd ul',
-      //   // trigger: 'click',
-      //   effect: 'fold',
-      //   autoPage: true,
-      //   autoPlay: true
-      // });
-
-      $('#m-sld').slide({
+      // banner
+      $('#banner').slide({
+        // titCell: '.hd ul',
         mainCell: '.bd ul',
+        // trigger: 'click',
+        effect: 'fold',
+        // autoPage: true,
         autoPlay: true
       });
     }
 
     // 页脚固底
     (function() {
-      var $footer = $('#sub-footer').parent('footer');
+      // var $footer = $('#footer');
       var styleStr = $footer.attr('style') || '';
       var $holder = $('<div/>');
 

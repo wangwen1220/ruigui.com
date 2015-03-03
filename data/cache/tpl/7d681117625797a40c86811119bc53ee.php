@@ -1,4 +1,4 @@
-<?php exit;?>0014568251124e13092a04ede662939d7e0e752a8c71s:2341:"a:2:{s:8:"template";s:2277:"<!doctype html>
+<?php exit;?>001456912325dfa0a52bd21e44e7b70c0edb269107b8s:2308:"a:2:{s:8:"template";s:2244:"<!doctype html>
 <html class="home no-js">
 <head>
   <meta charset="utf-8">
@@ -19,29 +19,27 @@
   <header id="header">
     <div class="g-wrap">
       <div class="logo"><a href="/"><img src="/themes/ruigui/images/logo.png"></a></div>
-      <!-- <div class="m-search">
-        <form action="<?php echo url('Article/Search/index');?>" method="post">
-          <div class="slectbox">
-            <select name="model">
-              <option value="0">标题</option>
-              <option value="1">全文</option>
-            </select>
-          </div>
-          <input name="keyword" type="text" maxlength="20">
-          <button>搜索</button>
-        </form>
-      </div> -->
+      <form class="search" action="<?php echo url('Article/Search/index');?>" method="post">
+        <div class="slectbox">
+          <select name="model">
+            <option value="0">标题</option>
+            <option value="1">全文</option>
+          </select>
+        </div>
+        <input type="text" name="keyword" maxlength="20" placeholder="Search Products">
+        <button>搜索</button>
+      </form>
     </div>
-
-    <nav>
-      <ul class="g-wrap">
-        <li><a <?php if (!$topCategoryInfo['class_id']){ ?> class="u-crt" <?php } ?> href="/">Home</a></li>
-        <?php $listList = service("duxcms","Label","categoryList",array( "app"=>"DuxCms", "label"=>"categoryList", "limit"=>5, "parent_id"=>0));  if(is_array($listList)) foreach($listList as $list){ ?>
-        <li><a href="<?php echo $list["curl"];?>" <?php if ($list['class_id']==$topCategoryInfo['class_id']){ ?> class="u-crt" <?php } ?>><?php echo $list["name"];?></a></li>
-        <?php } ?>
-        <li><a href='http://malu.en.alibaba.com/' target="_blank">Alibaba</a></li>
-        <!-- <li><a href='<?php echo url("DuxCms/Form/index",array("name"=>'guestbook'));?>'>留言板</a></li> -->
-      </ul>
-    </nav>
   </header>
-";s:12:"compile_time";i:1425289112;}";
+
+  <nav id="nav">
+    <ul class="g-wrap">
+      <li><a <?php if (!$topCategoryInfo['class_id']){ ?> class="current" <?php } ?> href="/">Home</a></li>
+      <?php $listList = service("duxcms","Label","categoryList",array( "app"=>"DuxCms", "label"=>"categoryList", "limit"=>5, "parent_id"=>0));  if(is_array($listList)) foreach($listList as $list){ ?>
+      <li><a href="<?php echo $list["curl"];?>" <?php if ($list['class_id']==$topCategoryInfo['class_id']){ ?> class="current" <?php } ?>><?php echo $list["name"];?></a></li>
+      <?php } ?>
+      <li><a href='http://malu.en.alibaba.com/' target="_blank">Alibaba</a></li>
+      <!-- <li><a href='<?php echo url("DuxCms/Form/index",array("name"=>'guestbook'));?>'>留言板</a></li> -->
+    </ul>
+  </nav>
+";s:12:"compile_time";i:1425376325;}";

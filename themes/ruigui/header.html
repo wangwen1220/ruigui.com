@@ -19,28 +19,26 @@
   <header id="header">
     <div class="g-wrap">
       <div class="logo"><a href="/"><img src="images/logo.png"></a></div>
-      <!-- <div class="m-search">
-        <form action="{url('Article/Search/index')}" method="post">
-          <div class="slectbox">
-            <select name="model">
-              <option value="0">标题</option>
-              <option value="1">全文</option>
-            </select>
-          </div>
-          <input name="keyword" type="text" maxlength="20">
-          <button>搜索</button>
-        </form>
-      </div> -->
+      <form class="search" action="{url('Article/Search/index')}" method="post">
+        <div class="slectbox">
+          <select name="model">
+            <option value="0">标题</option>
+            <option value="1">全文</option>
+          </select>
+        </div>
+        <input type="text" name="keyword" maxlength="20" placeholder="Search Products">
+        <button>搜索</button>
+      </form>
     </div>
-
-    <nav>
-      <ul class="g-wrap">
-        <li><a <!--if{!$topCategoryInfo['class_id']}--> class="u-crt" <!--{/if}--> href="__ROOT__/">Home</a></li>
-        <!--list{app="DuxCms" label="categoryList" limit=5 parent_id=0  }-->
-        <li><a href="{$list.curl}" <!--if{$list['class_id']==$topCategoryInfo['class_id']}--> class="u-crt" <!--{/if}-->>{$list.name}</a></li>
-        <!--{/list}-->
-        <li><a href='http://malu.en.alibaba.com/' target="_blank">Alibaba</a></li>
-        <!-- <li><a href='{url("DuxCms/Form/index",array("name"=>'guestbook'))}'>留言板</a></li> -->
-      </ul>
-    </nav>
   </header>
+
+  <nav id="nav">
+    <ul class="g-wrap">
+      <li><a <!--if{!$topCategoryInfo['class_id']}--> class="current" <!--{/if}--> href="__ROOT__/">Home</a></li>
+      <!--list{app="DuxCms" label="categoryList" limit=5 parent_id=0  }-->
+      <li><a href="{$list.curl}" <!--if{$list['class_id']==$topCategoryInfo['class_id']}--> class="current" <!--{/if}-->>{$list.name}</a></li>
+      <!--{/list}-->
+      <li><a href='http://malu.en.alibaba.com/' target="_blank">Alibaba</a></li>
+      <!-- <li><a href='{url("DuxCms/Form/index",array("name"=>'guestbook'))}'>留言板</a></li> -->
+    </ul>
+  </nav>

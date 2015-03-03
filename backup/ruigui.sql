@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2015 年 02 月 13 日 23:03
+-- 生成日期: 2015 年 03 月 03 日 17:41
 -- 服务器版本: 5.6.19
--- PHP 版本: 5.3.28
+-- PHP 版本: 5.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- 数据库: `duxcms`
+-- 数据库: `ruigui`
 --
 
 -- --------------------------------------------------------
@@ -34,14 +34,15 @@ CREATE TABLE IF NOT EXISTS `rg_admin_group` (
   `status` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`group_id`),
   KEY `name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='后台管理组' AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='后台管理组' AUTO_INCREMENT=3 ;
 
 --
 -- 转存表中的数据 `rg_admin_group`
 --
 
 INSERT INTO `rg_admin_group` (`group_id`, `name`, `base_purview`, `menu_purview`, `status`) VALUES
-(1, '管理员', 'a:2:{i:0;s:15:"Admin_AppManage";i:1;s:21:"Admin_AppManage_index";}', 'a:4:{i:0;s:19:"首页_管理首页";i:1;s:19:"内容_栏目管理";i:2;s:19:"内容_文章管理";i:3;s:22:"系统_用户组管理";}', 1);
+(1, '管理员', 'a:2:{i:0;s:15:"Admin_AppManage";i:1;s:21:"Admin_AppManage_index";}', 'a:4:{i:0;s:19:"首页_管理首页";i:1;s:19:"内容_栏目管理";i:2;s:19:"内容_文章管理";i:3;s:22:"系统_用户组管理";}', 1),
+(2, '编辑', 'N;', 'a:9:{i:0;s:19:"首页_管理首页";i:1;s:19:"首页_站点统计";i:2;s:19:"内容_栏目管理";i:3;s:19:"内容_文章管理";i:4;s:19:"功能_碎片管理";i:5;s:22:"功能_推荐位管理";i:6;s:25:"功能_扩展模型管理";i:7;s:19:"功能_表单管理";i:8;s:16:"功能_TAG管理";}', 1);
 
 -- --------------------------------------------------------
 
@@ -58,14 +59,16 @@ CREATE TABLE IF NOT EXISTS `rg_admin_log` (
   `content` text,
   PRIMARY KEY (`log_id`),
   KEY `user_id` (`user_id`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='后台操作记录' AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='后台操作记录' AUTO_INCREMENT=4 ;
 
 --
 -- 转存表中的数据 `rg_admin_log`
 --
 
 INSERT INTO `rg_admin_log` (`log_id`, `user_id`, `time`, `ip`, `app`, `content`) VALUES
-(1, 0, 1423826965, '127.0.0.1', 'admin', '登录系统');
+(1, 0, 1423826965, '127.0.0.1', 'admin', '登录系统'),
+(2, 0, 1424832533, '192.168.2.212', 'admin', '登录系统'),
+(3, 0, 1424832546, '192.168.2.212', 'admin', '登录系统');
 
 -- --------------------------------------------------------
 
@@ -89,14 +92,15 @@ CREATE TABLE IF NOT EXISTS `rg_admin_user` (
   KEY `username` (`username`),
   KEY `group_id` (`group_id`) USING BTREE,
   KEY `email` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='后台管理员' AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='后台管理员' AUTO_INCREMENT=3 ;
 
 --
 -- 转存表中的数据 `rg_admin_user`
 --
 
 INSERT INTO `rg_admin_user` (`user_id`, `group_id`, `username`, `password`, `nicename`, `email`, `status`, `level`, `reg_time`, `last_login_time`, `last_login_ip`) VALUES
-(1, 1, 'steven', 'a6e612825ab0ec9b523f24182ea8f0d2', 'Steven', 'wangwen1220@139.com', 1, 1, 1399361747, 1423826965, '127.0.0.1');
+(1, 1, 'steven', 'a6e612825ab0ec9b523f24182ea8f0d2', 'Steven', 'wangwen1220@139.com', 1, 1, 1399361747, 1424832545, '192.168.2.212'),
+(2, 1, 'ruigui', '744096c5a8b745b0147d169b8125c29e', 'Ruigui', 'wangwen1220@gmail.com', 1, 1, 1425375352, NULL, '未知');
 
 -- --------------------------------------------------------
 
@@ -124,7 +128,17 @@ CREATE TABLE IF NOT EXISTS `rg_category` (
   KEY `pid` (`parent_id`),
   KEY `mid` (`app`),
   KEY `sequence` (`sequence`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='栏目基础信息' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='栏目基础信息' AUTO_INCREMENT=5 ;
+
+--
+-- 转存表中的数据 `rg_category`
+--
+
+INSERT INTO `rg_category` (`class_id`, `parent_id`, `app`, `show`, `sequence`, `type`, `name`, `urlname`, `subname`, `image`, `class_tpl`, `keywords`, `description`, `upload_config`) VALUES
+(1, 0, 'article', 1, 1, 1, 'Products', 'Products', '', '', 'list', '', '', 1),
+(2, 0, 'article', 1, 2, 1, 'News', 'News', '', '', 'list', '', '', 1),
+(3, 0, 'page', 1, 3, 1, 'About Us', 'About-Us', '', '', 'page', '', '', 1),
+(4, 0, 'page', 1, 4, 1, 'Contacts', 'Contacts', '', '', 'page', '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -141,6 +155,14 @@ CREATE TABLE IF NOT EXISTS `rg_category_article` (
   `page` int(10) NOT NULL DEFAULT '10'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='文章栏目信息';
 
+--
+-- 转存表中的数据 `rg_category_article`
+--
+
+INSERT INTO `rg_category_article` (`class_id`, `fieldset_id`, `content_tpl`, `config_upload`, `content_order`, `page`) VALUES
+(1, 0, 'content', '', 'time DESC', 10),
+(2, 0, 'content', '', 'time DESC', 10);
+
 -- --------------------------------------------------------
 
 --
@@ -152,6 +174,14 @@ CREATE TABLE IF NOT EXISTS `rg_category_page` (
   `content` mediumtext COMMENT '内容',
   KEY `cid` (`class_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='单页栏目信息';
+
+--
+-- 转存表中的数据 `rg_category_page`
+--
+
+INSERT INTO `rg_category_page` (`class_id`, `content`) VALUES
+(3, 'About Us'),
+(4, 'Contacts');
 
 -- --------------------------------------------------------
 
@@ -177,7 +207,7 @@ INSERT INTO `rg_config` (`name`, `data`) VALUES
 ('site_email', 'admin@duxcms.com'),
 ('site_copyright', 'duxcms'),
 ('site_statistics', ''),
-('tpl_name', 'default'),
+('tpl_name', 'ruigui'),
 ('tpl_index', 'index'),
 ('tpl_search', 'search'),
 ('tpl_tags', 'tag'),
@@ -248,7 +278,16 @@ CREATE TABLE IF NOT EXISTS `rg_content` (
   KEY `keywords` (`keywords`),
   KEY `class_id` (`class_id`) USING BTREE,
   KEY `time` (`time`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='内容基础' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='内容基础' AUTO_INCREMENT=4 ;
+
+--
+-- 转存表中的数据 `rg_content`
+--
+
+INSERT INTO `rg_content` (`content_id`, `class_id`, `title`, `urltitle`, `font_color`, `font_bold`, `font_em`, `position`, `keywords`, `description`, `time`, `image`, `url`, `sequence`, `status`, `copyfrom`, `views`, `taglink`, `tpl`, `site`) VALUES
+(1, 1, 'Slide 1 pro', 'Slide-1-pro', '0', 0, 0, '1', '', '', 1425371820, '/upload/2015-03-03/b90c5a8bb400d3d6540484b21b273d47.jpg', '', 0, 1, '本站', 0, 1, '', 1),
+(2, 1, 'Slide 2 pro', 'Slide-2-pro', '0', 0, 0, '', '', '', 1425372120, '/upload/2015-03-03/bcb5464e43bc5bd4568259e27cedef49.jpg', '', 0, 1, '本站', 2, 1, '', 1),
+(3, 1, 'Slide 3 pro', 'Slide-3-pro', '0', 0, 0, '1', '', '', 1425372240, '/upload/2015-03-03/0a078720cd860a45661c33414d459091.jpg', '', 0, 1, '本站', 0, 1, '', 1);
 
 -- --------------------------------------------------------
 
@@ -260,6 +299,15 @@ CREATE TABLE IF NOT EXISTS `rg_content_article` (
   `content_id` int(10) DEFAULT NULL,
   `content` mediumtext
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='文章内容信息';
+
+--
+-- 转存表中的数据 `rg_content_article`
+--
+
+INSERT INTO `rg_content_article` (`content_id`, `content`) VALUES
+(1, '&lt;img src=&quot;/upload/2015-03-03/0e4f015bea6148b6cde4ab88c6bc5f55.jpg&quot; alt=&quot;&quot; /&gt;'),
+(2, '&lt;img src=&quot;/upload/2015-03-03/bf343c36fc9da67b661cc6d9aae14cf3.jpg&quot; alt=&quot;&quot; /&gt;'),
+(3, '&lt;img src=&quot;/upload/2015-03-03/0f1c5218d3fb4e50731c984b5a974998.jpg&quot; alt=&quot;&quot; /&gt;');
 
 -- --------------------------------------------------------
 
@@ -432,7 +480,19 @@ CREATE TABLE IF NOT EXISTS `rg_file` (
   PRIMARY KEY (`file_id`),
   KEY `ext` (`ext`),
   KEY `time` (`time`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='上传文件' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='上传文件' AUTO_INCREMENT=7 ;
+
+--
+-- 转存表中的数据 `rg_file`
+--
+
+INSERT INTO `rg_file` (`file_id`, `url`, `original`, `title`, `ext`, `size`, `time`) VALUES
+(1, '/upload/2015-03-03/b90c5a8bb400d3d6540484b21b273d47.jpg', '/upload/2015-03-03/b90c5a8bb400d3d6540484b21b273d47.jpg', 'xc02', 'jpg', 60387, 1425371941),
+(2, '/upload/2015-03-03/0e4f015bea6148b6cde4ab88c6bc5f55.jpg', '/upload/2015-03-03/0e4f015bea6148b6cde4ab88c6bc5f55.jpg', '1', 'jpg', 9412, 1425372049),
+(3, '/upload/2015-03-03/bcb5464e43bc5bd4568259e27cedef49.jpg', '/upload/2015-03-03/bcb5464e43bc5bd4568259e27cedef49.jpg', 'newcar', 'jpg', 52453, 1425372206),
+(4, '/upload/2015-03-03/bf343c36fc9da67b661cc6d9aae14cf3.jpg', '/upload/2015-03-03/bf343c36fc9da67b661cc6d9aae14cf3.jpg', '2', 'jpg', 8939, 1425372227),
+(5, '/upload/2015-03-03/0a078720cd860a45661c33414d459091.jpg', '/upload/2015-03-03/0a078720cd860a45661c33414d459091.jpg', 'en_03', 'jpg', 112926, 1425372261),
+(6, '/upload/2015-03-03/0f1c5218d3fb4e50731c984b5a974998.jpg', '/upload/2015-03-03/0f1c5218d3fb4e50731c984b5a974998.jpg', '3', 'jpg', 12987, 1425372272);
 
 -- --------------------------------------------------------
 
@@ -525,7 +585,18 @@ CREATE TABLE IF NOT EXISTS `rg_total_visitor` (
   `time` int(10) DEFAULT NULL,
   `count` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='访客统计' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='访客统计' AUTO_INCREMENT=6 ;
+
+--
+-- 转存表中的数据 `rg_total_visitor`
+--
+
+INSERT INTO `rg_total_visitor` (`id`, `time`, `count`) VALUES
+(1, 1424793600, 4),
+(2, 1424880000, 2),
+(3, 1425052800, 81),
+(4, 1425225600, 11),
+(5, 1425312000, 323);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

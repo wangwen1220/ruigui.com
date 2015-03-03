@@ -1,4 +1,4 @@
-<?php exit;?>0014568251129efb7f00f940b774b260f10e8e6ea67bs:745:"a:2:{s:8:"template";s:682:"  <footer class="footer">
+<?php exit;?>001456912325650f0bbf7e03cb41956c3f8f598cde94s:758:"a:2:{s:8:"template";s:695:"  <footer id="footer" class="g-wrap">
     <?php $echoList = service("duxcms","Label","fragment",array( "app"=>"DuxCms", "label"=>"fragment", "mark"=>"foot"));  echo $echoList; ?>
 
     <nav>
@@ -9,7 +9,8 @@
         <?php } ?>
       </ul>
     </nav>
+
     <p class="copyright">Copyright © Guangzhou Ruigui Electronic Firm. All rights reserved.</p>
   </footer>
 </body>
-</html>";s:12:"compile_time";i:1425289112;}";
+</html>";s:12:"compile_time";i:1425376325;}";

@@ -1,6 +1,7 @@
 /*! Main Style by Steven 2015-2-26 */
 
 @charset 'utf-8';
+@import 'hover.css';
 @import 'animate.css';
 
 /* =Base
@@ -35,9 +36,6 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 }
 .f-tr {
   text-align: right !important;
-}
-.f-tj {
-  text-align: justify !important;
 }
 .f-nowrap {
   white-space: nowrap !important;
@@ -80,6 +78,37 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 .f-invisible {
   visibility: hidden;
 }
+.f-pre {
+  overflow: hidden;
+  text-align: left;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.f-wwb {
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.f-tdu, .f-tdu:hover {
+  text-decoration: underline;
+}
+.f-tdn, .f-tdn:hover {
+  text-decoration: none;
+}
+.f-toe {
+  white-space: nowrap;
+  word-wrap: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.f-usn {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
 
 /*
 两端对齐:
@@ -89,8 +118,8 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 4. font-size font-size 设为0，IE8? 两端对齐无效，要设置 text-justify: inter-ideograph 使其生效
 5. IE67 下块级元素不能实现两端对齐
 */
-.f-center {
-  text-align: justify;
+.f-tj {
+  text-align: justify !important;
   text-justify: distribute-all-lines; /*ie6-8?*/
   text-justify: inter-ideograph;
   text-align-last: justify;
@@ -98,14 +127,15 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
   *font-size: 12px;
   /*line-height: 0;*/
 }
-.f-center > * {
+.f-tj > * {
   font-size: 12px;
 }
+
 /*
 1. text-align-last: justify 目前只有IE支持，标准浏览器需要使用 after 伪类模拟类似效果
 2. opera 浏览器需要添加 vertical-align: top 才能完全解决底部多余的空白
 */
-.f-center:after {
+.f-tj:after {
   content: '';
   display: inline-block;
   width: 100%;
@@ -472,7 +502,8 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #cd1a1c;
+  color: #CD1A1C;
+  text-decoration: underline;
 }
 a:focus {
   outline: thin dotted;
@@ -697,115 +728,226 @@ hr, .u-hr {
   width: 1000px;
   margin: 0 auto;
 }
-.g-hd, .g-bd, .g-ft, .m-nav ul {
-  width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
+.g-wrap:before,
+.g-wrap:after {
+  content: '';
+  display: table;
 }
-.g-hd {
-  height: 90px;
-}
-.g-bd {
-  padding-top: 20px;
-}
-.g-mn {
-  float: left;
-  width: 690px;
-}
-.g-sd {
-  float: right;
-  width: 260px;
-}
-.g-ft {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  text-align: center;
-  background-color: #fff;
-  padding: 20px 0;
-  line-height: 25px;
-}
-.s-box {
-  background-color: #fff;
-  padding: 10px;
+.g-wrap:after {
+  clear: both;
 }
 
-/* 头部 */
-.m-logo {
+/* Header */
+#header {
+  position: relative;
+}
+#header .logo {
   float: left;
-  margin-top: 5px;
+  margin-right: 10px;
 }
-.m-logo img {
-  display: block;
-  height: 80px;
-  width: auto;
-}
-.m-sch {
-  display: none;
-  float: right;
-  padding: 5px;
-  margin-top: 25px;
-  width: 343px;
-  height: 30px;
-  overflow: hidden;
-  background-color: #fff;
+#header .logo a {
+  display: table-cell;
+  height: 90px;
   vertical-align: middle;
 }
-.m-sch .select {
+#header .logo img {
+  width: auto;
+  max-height: 80px;
+}
+#header .search {
+  float: right;
+  margin-top: 30px;
+  /*width: 343px;*/
+  height: 30px;
+  overflow: hidden;
+  box-shadow: 0 0 1px rgba(0, 0, 0, .1);
+  background: #fff;
+  vertical-align: middle;
+}
+#header .search .slectbox {
   float: left;
-  width: 58px;
+  padding: 4px 4px 0 4px;
+  /*width: 58px;*/
   height: 24px;
   border: 1px solid #ccc;
-  padding-left: 4px;
-  padding-top: 4px;
-  border-right: 0px;
 }
-.m-sch select {
-  border: 0px;
+#header .search select {
+  border: 0;
+  outline: 0;
 }
-.m-sch input {
+html.chrome #header .search .slectbox {
+  height: auto;
+  padding: 0;
+  border: 0;
+}
+html.chrome #header .search select {
+  padding: 0 4px;
+  height: 30px;
+  /*line-height: 30px;*/
+  border: 1px #ccc solid;
+}
+#header .search input {
   float: left;
-  width: 198px;
+  padding: 5px;
+  width: 200px;
   height: 18px;
   line-height: 18px;
-  padding: 5px;
-  margin: 0px;
   border: 1px solid #ccc;
-  border-right: 0px;
+  border-width: 1px 0;
+  outline-color: #CD1A1C;
 }
-.m-sch button {
+#header .search button {
   float: left;
   width: 70px;
   height: 30px;
   line-height: 30px;
-  background-color: #cd1a1c;
+  border: 0;
   text-align: center;
   color: #fff;
-  border: 0px;
+  background: #cd1a1c;
 }
 
-/* 导航 */
-.m-nav {
+/* Nav */
+#nav {
   height: 50px;
   line-height: 50px;
-  font-size: 14px;
-  background-color: #333333;
+  /*box-shadow: 0 1px 1px rgba(0, 0, 0, .3);*/
+  font-size: 15px;
+  color: #f1f1f1;
+  background: #333;
 }
-.m-nav ul li {
+#nav li {
   float: left;
+  margin-right: 1px;
 }
-.m-nav ul li a {
-  padding-left: 20px;
-  padding-right: 20px;
-  color: #cccccc;
-  line-height: 50px;
+#nav li:last-child {
+  margin-right: 0;
+}
+#nav li a {
   display: block;
+  padding: 0 2em;
+  /*border-radius: 3px 3px 0 0;*/
+  text-decoration: none;
 }
-.m-nav ul li a:hover, .m-nav ul li .u-crt {
-  background-color: #cd1a1c;
+#nav li a:before,
+#nav li a:hover,
+#nav li a:focus,
+#nav li a:active,
+#nav li a.current {
+  background: #cd1a1c;
   color: #FFF;
 }
 
-/* 头条 */
+/* Footer */
+#footer {
+  margin-top: 20px;
+  padding: 30px 0 20px;
+  border-top: 1px #eee solid;
+  color: #eee;
+  text-align: center;
+  line-height: 1.8;
+  background: #333;
+}
+#footer nav ul {
+  margin-bottom: 8px;
+}
+#footer nav li {
+  display: inline-block;
+  padding: 0 12px;
+  border-left: 1px #888 solid;
+  line-height: 1;
+}
+#footer nav li:first-child {
+  border-left: 0;
+}
+#footer nav li a:hover {
+  /*text-decoration: none;*/
+}
+#footer .copyright {
+  color: #888;
+}
+
+/* Main */
+#main {
+  margin-top: 10px;
+}
+
+/* banner */
+#banner {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+}
+#banner .hd {
+  position: absolute;
+  z-index: 1;
+  bottom: 10px;
+  right: 25px;
+  font-size: 0;
+}
+#banner .hd li {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  margin-left: 5px;
+  width: 10px;
+  height: 10px;
+  overflow: hidden;
+  line-height: 999;
+  border-radius: 50%;
+  opacity: .88;
+  background: #999;
+  cursor: pointer;
+}
+#banner .hd li.on {
+  margin: 0 -1px -1px 4px;
+  border: 1px solid #f60;
+  background: #f60;
+  opacity: 1;
+}
+#banner .bd {
+  position: relative;
+}
+#banner .bd li {
+  vertical-align: middle;
+  zoom: 1;
+}
+#banner .bd img {
+  display: block;
+  width: 100%;
+  height: 320px;
+}
+#banner .nav {
+  display: none;
+}
+#banner:hover .nav {
+  display: block;
+}
+#banner .nav a {
+  position: absolute;
+  left: 3%;
+  top: 50%;
+  margin-top: -30px;
+  width: 32px;
+  height: 60px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0) url(../images/arr-slider.png) -110px 50% no-repeat;
+  filter: alpha(opacity=50);
+  opacity: .5;
+  cursor: pointer;
+  /*background-color: #999;*/
+}
+#banner .nav a.next {
+  left: auto;
+  right: 3%;
+  background-position: 8px 50%;
+}
+#banner .nav a:hover {
+  filter: alpha(opacity=100);
+  opacity: 1;
+}
+
 .m-sld {
   float: left;
   width: 270px;
@@ -855,6 +997,45 @@ hr, .u-hr {
   height: 270px;
   display: block;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+.g-hd, .g-bd, .g-ft, .m-nav ul {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.g-hd {
+  height: 90px;
+}
+.g-bd {
+  padding-top: 20px;
+}
+.g-mn {
+  float: left;
+  width: 690px;
+}
+.g-sd {
+  float: right;
+  width: 260px;
+}
+
+.s-box {
+  background-color: #fff;
+  padding: 10px;
+}
+
+
+
 .m-top-new {
   float: right;
   width: 370px;
