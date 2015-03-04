@@ -1,27 +1,16 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>{$media.title}</title>
-<meta name="keywords" content="{$media.keywords}" />
-<meta name="description" content="{$media.description}" />
-<link href="css/base.css" rel="stylesheet" type="text/css">
-<link href="css/style.css" rel="stylesheet" type="text/css">
-</head>
+<!--#include file="header.html"-->
 
-<body>
-<!--#include file="head.html"-->
-<div class="g-bd">
+<main id="main" class="g-wrap">
 	<div class="g-mn">
 		<div class="m-crumb">
 			<ul class="f-cb">
 				<li><a href="__ROOT__/">首页</a></li>
-				<!--foreach{$crumb as $vo}--> 
+				<!--foreach{$crumb as $vo}-->
 				<li><i>&gt;</i><a href="{$vo.url}">{$vo.name}</a></li>
 				<!--{/foreach}-->
 			</ul>
 		</div>
-		<!--foreach{$pageList as $vo}--> 
+		<!--foreach{$pageList as $vo}-->
 		<div class="m-gb-lst">
 			<div class="info">{$vo.name} | {$vo.email} | {date('Y-m-d',$vo['time'])}</div>
 			<div class="content">{$vo.content}</div>
@@ -29,7 +18,7 @@
 		<!--{/foreach}-->
 		<div class="m-gb-form">
 			<form action="{U('DuxCms/Form/push')}" method="post" AutoComplete="off" >
-				<div class="m-form"> 
+				<div class="m-form">
                 	<div class="formitm">
                         <label class="lab">昵称：</label>
                         <div class="ipt">
@@ -62,7 +51,6 @@
 		<!--#include file="sidebar.html"-->
 	</div>
 	<div class="f-cb"></div>
-</div>
-<!--#include file="foot.html"-->
-</body>
-</html>
+</main>
+
+<!--#include file="footer.html"-->
