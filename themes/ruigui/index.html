@@ -5,14 +5,14 @@
   <div id="banner" class="g-box">
     <div class="hd">
       <ul>
-        <!--list{app="DuxCms" label="categoryList" limit=5 parent_id=1 class_id="5,6,7"}-->
+        <!--list{app="DuxCms" label="categoryList" limit="5" parent_id="1" class_id="5,6,7"}-->
         <li>{$list.i + 1}</li>
         <!--{/list}-->
       </ul>
     </div>
     <div class="bd">
       <ul>
-        <!--list{app="DuxCms" label="categoryList" limit=5 parent_id=1 class_id="5,6,7"}-->
+        <!--list{app="DuxCms" label="categoryList" limit="5" parent_id="1" class_id="5,6,7"}-->
         <li><a href="{$list.curl}" title="{$list.name}"><img src="{$list.image}" width="1000" height="320" alt="{$list.name}"></a></li>
         <!--{/list}-->
       </ul>
@@ -27,46 +27,23 @@
   <!-- showcase -->
   <div id="showcase" class="g-box">
     <ul>
-      <!--list{app="DuxCms" label="contentList" limit=4 pos_id=1 }-->
+      <!--list{app="DuxCms" label="contentList" limit="4" pos_id="2" }-->
       <li><a href="{$list.aurl}" title="{$list.title}"><img src="{$list.image}" alt="{$list.title}"></a></li>
       <!--{/list}-->
     </ul>
   </div>
   <!-- /showcase -->
 
-  <!-- article -->
-  <div class="g-md">
-    <!--class{app="Article" label="categoryList" limit="4" type="1"}-->
-    <div class="m-news">
-      <div class="tt"><a href="{$class.curl}">{$class.name}</a><span><a href="{$class.curl}">more</a></span></div>
-      <!--list{app="DuxCms" label="contentList" limit="1" image="true"  class_id=$class['class_id']}-->
-      <div class="hot">
-        <a href="{$list.aurl}"><img src="{$list.image}" width="70" height="48" alt="{$list.aurl}"></a><a href="{$list.aurl}">{$list.title}</a>
-        <div class="f-cb"></div>
-      </div>
-      <!--{/list}-->
-      <div class="lst">
-        <ul>
-          <!--list{app="DuxCms" label="contentList" limit="5" class_id=$class['class_id']}-->
-          <li><a href="{$list.aurl}">{$list.title}</a><span>{date('Y-m-d',$list['time'])}</span></li>
-          <!--{/list}-->
-        </ul>
-      </div>
+  <!-- homeinfo -->
+  <div class="homeinfo g-box">
+    <!--list{app="DuxCms" label="contentList" limit="2" pos_id="3" order="class_id desc"}-->
+    <div class="info">
+      <h3 class="title">{$list.title}</h3>
+      <p class="content">{$list.content} </p>
     </div>
-    <!--{/class}-->
-    <div class="f-cb"></div>
+    <!--{/list}-->
   </div>
-  <!-- article -->
-
-
-  <div class="g-sd js-hide">
-    <div class="m-sdc">
-      <div class="tt">模板说明</div>
-      <div class="ct"><!--echo{ app="DuxCms" label="fragment" mark="info" }--></div>
-    </div>
-  </div>
-
-
+  <!-- /homeinfo -->
 </main>
 
 <!--#include file="footer.html"-->
