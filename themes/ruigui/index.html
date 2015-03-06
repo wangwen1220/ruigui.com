@@ -5,15 +5,15 @@
   <div id="banner" class="g-box">
     <div class="hd">
       <ul>
-        <!--list{app="DuxCms" label="contentList" limit=5 image=true }-->
+        <!--list{app="DuxCms" label="categoryList" limit=5 parent_id=1 class_id="5,6,7"}-->
         <li>{$list.i + 1}</li>
         <!--{/list}-->
       </ul>
     </div>
     <div class="bd">
       <ul>
-        <!--list{app="DuxCms" label="contentList" limit=5 image=true }-->
-        <li><a href="{$list.aurl}"><img src="{$list.image}" width="270" height="270"></a></li>
+        <!--list{app="DuxCms" label="categoryList" limit=5 parent_id=1 class_id="5,6,7"}-->
+        <li><a href="{$list.curl}" title="{$list.name}"><img src="{$list.image}" width="1000" height="320" alt="{$list.name}"></a></li>
         <!--{/list}-->
       </ul>
     </div>
@@ -25,21 +25,12 @@
   <!-- /banner -->
 
   <!-- showcase -->
-  <div class="m-top-new g-box">
-    <!--list{app="DuxCms" label="contentList" limit=1 pos_id=1 }-->
-    <div class="m-hot">
-      <div class="tt"><a href="{$list.aurl}">{$list.title}</a> <span>推荐置顶</span></div>
-      <div class="dsc">{$list.description}</div>
-    </div>
-    <!--{/list}-->
-
-    <div class="m-hot-lst">
-      <ul>
-        <!--list{app="DuxCms" label="contentList" limit="1,5" pos_id=1 }-->
-        <li><a href="{$list.aurl}">{$list.title}</a><span>{date('Y-m-d',$list['time'])}</span></li>
-        <!--{/list}-->
-      </ul>
-    </div>
+  <div id="showcase" class="g-box">
+    <ul>
+      <!--list{app="DuxCms" label="contentList" limit=4 pos_id=1 }-->
+      <li><a href="{$list.aurl}" title="{$list.title}"><img src="{$list.image}" alt="{$list.title}"></a></li>
+      <!--{/list}-->
+    </ul>
   </div>
   <!-- /showcase -->
 

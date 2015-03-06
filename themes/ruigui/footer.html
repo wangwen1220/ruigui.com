@@ -4,13 +4,16 @@
     <nav>
       <ul>
         <li><a href="__ROOT__/">Home</a></li>
-        <!--list{app="DuxCms" label="categoryList" limit=5 parent_id=0 }-->
+        <!--list{app="DuxCms" label="categoryList" limit=8 parent_id=0 }-->
         <li><a href="{$list.curl}">{$list.name}</a></li>
         <!--{/list}-->
       </ul>
     </nav>
 
-    <p class="copyright">Copyright © Guangzhou Ruigui Electronic Firm. All rights reserved.</p>
+    <p class="copyright">Copyright © {$sys.site_copyright}. All rights reserved.</p>
   </footer>
+
+  <!-- 统计代码 -->
+  {$sys.site_statistics}
 </body>
 </html>

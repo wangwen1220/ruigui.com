@@ -12,15 +12,23 @@ CREATE TABLE `rg_admin_user` (  `user_id` int(10) NOT NULL AUTO_INCREMENT COMMEN
 INSERT INTO rg_admin_user VALUES('1','1','steven','a6e612825ab0ec9b523f24182ea8f0d2','Steven','wangwen1220@139.com','1','1','1399361747','1424832545','192.168.2.212')
 INSERT INTO rg_admin_user VALUES('2','1','ruigui','744096c5a8b745b0147d169b8125c29e','Ruigui','wangwen1220@gmail.com','1','1','1425375352','','未知')
 DROP TABLE IF EXISTS rg_category
-CREATE TABLE `rg_category` (  `class_id` int(10) NOT NULL AUTO_INCREMENT,  `parent_id` int(10) DEFAULT '0',  `app` varchar(20) DEFAULT NULL,  `show` tinyint(1) unsigned DEFAULT '1',  `sequence` int(10) DEFAULT '0',  `type` int(10) NOT NULL DEFAULT '1',  `name` varchar(250) DEFAULT NULL,  `urlname` varchar(250) DEFAULT NULL,  `subname` varchar(250) DEFAULT NULL,  `image` varchar(250) DEFAULT NULL,  `class_tpl` varchar(250) DEFAULT NULL,  `keywords` varchar(250) DEFAULT NULL,  `description` varchar(250) DEFAULT NULL,  `upload_config` int(10) DEFAULT '1',  PRIMARY KEY (`class_id`),  UNIQUE KEY `urlname` (`urlname`) USING BTREE,  KEY `pid` (`parent_id`),  KEY `mid` (`app`),  KEY `sequence` (`sequence`)) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='栏目基础信息';
+CREATE TABLE `rg_category` (  `class_id` int(10) NOT NULL AUTO_INCREMENT,  `parent_id` int(10) DEFAULT '0',  `app` varchar(20) DEFAULT NULL,  `show` tinyint(1) unsigned DEFAULT '1',  `sequence` int(10) DEFAULT '0',  `type` int(10) NOT NULL DEFAULT '1',  `name` varchar(250) DEFAULT NULL,  `urlname` varchar(250) DEFAULT NULL,  `subname` varchar(250) DEFAULT NULL,  `image` varchar(250) DEFAULT NULL,  `class_tpl` varchar(250) DEFAULT NULL,  `keywords` varchar(250) DEFAULT NULL,  `description` varchar(250) DEFAULT NULL,  `upload_config` int(10) DEFAULT '1',  PRIMARY KEY (`class_id`),  UNIQUE KEY `urlname` (`urlname`) USING BTREE,  KEY `pid` (`parent_id`),  KEY `mid` (`app`),  KEY `sequence` (`sequence`)) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='栏目基础信息';
 INSERT INTO rg_category VALUES('1','0','article','1','1','1','Products','Products','','','list','','','1')
 INSERT INTO rg_category VALUES('2','0','article','1','2','1','News','News','','','list','','','1')
 INSERT INTO rg_category VALUES('3','0','page','1','3','1','About Us','About-Us','','','page','','','1')
 INSERT INTO rg_category VALUES('4','0','page','1','4','1','Contacts','Contacts','','','page','','','1')
+INSERT INTO rg_category VALUES('5','0','article','1','1','1','For iPhone Parts','For-iPhone-Parts','','/upload/2015-03-05/b90c5a8bb400d3d6540484b21b273d47.jpg','list','','','1')
+INSERT INTO rg_category VALUES('6','0','article','1','2','1','For iPad Parts','For-iPad-Parts','','/upload/2015-03-05/bf343c36fc9da67b661cc6d9aae14cf3.jpg','list','','','1')
+INSERT INTO rg_category VALUES('7','0','article','1','3','1','For Sumsung Parts','For-Sumsung-Parts','','','list','','','1')
+INSERT INTO rg_category VALUES('8','1','article','1','4','1','For iPhone LCD Assembly','For-iPhone-LCD-Assembly','','/upload/2015-03-05/f03fe7f1692473f0e9f0d367690bdef5.jpg','list','','','1')
 DROP TABLE IF EXISTS rg_category_article
 CREATE TABLE `rg_category_article` (  `class_id` int(10) NOT NULL,  `fieldset_id` int(10) NOT NULL,  `content_tpl` varchar(250) NOT NULL,  `config_upload` text NOT NULL,  `content_order` varchar(250) NOT NULL,  `page` int(10) NOT NULL DEFAULT '10') ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='文章栏目信息';
 INSERT INTO rg_category_article VALUES('1','0','content','','time DESC','10')
 INSERT INTO rg_category_article VALUES('2','0','content','','time DESC','10')
+INSERT INTO rg_category_article VALUES('5','0','content','','time DESC','10')
+INSERT INTO rg_category_article VALUES('6','0','content','','time DESC','10')
+INSERT INTO rg_category_article VALUES('7','0','content','','time DESC','10')
+INSERT INTO rg_category_article VALUES('8','0','content','','time DESC','10')
 DROP TABLE IF EXISTS rg_category_page
 CREATE TABLE `rg_category_page` (  `class_id` int(10) unsigned NOT NULL DEFAULT '0',  `content` mediumtext COMMENT '内容',  KEY `cid` (`class_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='单页栏目信息';
 INSERT INTO rg_category_page VALUES('3','About Us')
@@ -33,7 +41,7 @@ INSERT INTO rg_config VALUES('site_url','')
 INSERT INTO rg_config VALUES('site_keywords','duxcms')
 INSERT INTO rg_config VALUES('site_description','')
 INSERT INTO rg_config VALUES('site_email','admin@duxcms.com')
-INSERT INTO rg_config VALUES('site_copyright','duxcms')
+INSERT INTO rg_config VALUES('site_copyright','Guangzhou Ruigui Electronic Firm')
 INSERT INTO rg_config VALUES('site_statistics','')
 INSERT INTO rg_config VALUES('tpl_name','ruigui')
 INSERT INTO rg_config VALUES('tpl_index','index')
@@ -47,9 +55,9 @@ CREATE TABLE `rg_config_upload` (  `id` int(10) NOT NULL AUTO_INCREMENT,  `name`
 INSERT INTO rg_config_upload VALUES('1','默认','10','jpg,gif,bmp,png','0','0','0','1','800','800','logo.jpg','1')
 DROP TABLE IF EXISTS rg_content
 CREATE TABLE `rg_content` (  `content_id` int(10) NOT NULL AUTO_INCREMENT COMMENT '文章ID',  `class_id` int(10) DEFAULT NULL COMMENT '栏目ID',  `title` varchar(250) DEFAULT NULL COMMENT '标题',  `urltitle` varchar(250) DEFAULT NULL COMMENT 'URL路径',  `font_color` varchar(250) DEFAULT NULL COMMENT '颜色',  `font_bold` tinyint(1) DEFAULT NULL COMMENT '加粗',  `font_em` tinyint(1) DEFAULT NULL,  `position` varchar(250) DEFAULT NULL,  `keywords` varchar(250) DEFAULT NULL COMMENT '关键词',  `description` varchar(250) DEFAULT NULL COMMENT '描述',  `time` int(10) DEFAULT NULL COMMENT '更新时间',  `image` varchar(250) DEFAULT NULL COMMENT '封面图',  `url` varchar(250) DEFAULT NULL COMMENT '跳转',  `sequence` int(10) DEFAULT NULL COMMENT '排序',  `status` int(10) DEFAULT NULL COMMENT '状态',  `copyfrom` varchar(250) DEFAULT NULL COMMENT '来源',  `views` int(10) DEFAULT '0' COMMENT '浏览数',  `taglink` int(10) DEFAULT '0' COMMENT 'TAG链接',  `tpl` varchar(250) DEFAULT NULL,  `site` int(10) DEFAULT '1',  PRIMARY KEY (`content_id`),  UNIQUE KEY `urltitle` (`urltitle`) USING BTREE,  KEY `title` (`title`) USING BTREE,  KEY `description` (`description`) USING BTREE,  KEY `keywords` (`keywords`),  KEY `class_id` (`class_id`) USING BTREE,  KEY `time` (`time`) USING BTREE) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='内容基础';
-INSERT INTO rg_content VALUES('1','1','Slide 1 pro','Slide-1-pro','0','0','0','1','','','1425371820','/upload/2015-03-03/b90c5a8bb400d3d6540484b21b273d47.jpg','','0','1','本站','0','1','','1')
-INSERT INTO rg_content VALUES('2','1','Slide 2 pro','Slide-2-pro','0','0','0','','','','1425372120','/upload/2015-03-03/bcb5464e43bc5bd4568259e27cedef49.jpg','','0','1','本站','2','1','','1')
-INSERT INTO rg_content VALUES('3','1','Slide 3 pro','Slide-3-pro','0','0','0','1','','','1425372240','/upload/2015-03-03/0a078720cd860a45661c33414d459091.jpg','','0','1','本站','0','1','','1')
+INSERT INTO rg_content VALUES('1','1','Slide 1 pro','Slide-1-pro','0','0','0','1','','','1425371820','/upload/2015-03-03/b90c5a8bb400d3d6540484b21b273d47.jpg','','0','1','本站','1','1','','1')
+INSERT INTO rg_content VALUES('2','1','Slide 2 pro','Slide-2-pro','0','0','0','','','','1425372120','/upload/2015-03-03/bcb5464e43bc5bd4568259e27cedef49.jpg','','0','1','本站','3','1','','1')
+INSERT INTO rg_content VALUES('3','1','Slide 3 pro','Slide-3-pro','0','0','0','1','','','1425372240','/upload/2015-03-03/0a078720cd860a45661c33414d459091.jpg','','0','1','本站','3','1','','1')
 DROP TABLE IF EXISTS rg_content_article
 CREATE TABLE `rg_content_article` (  `content_id` int(10) DEFAULT NULL,  `content` mediumtext) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='文章内容信息';
 INSERT INTO rg_content_article VALUES('1','&lt;img src=&quot;/upload/2015-03-03/0e4f015bea6148b6cde4ab88c6bc5f55.jpg&quot; alt=&quot;&quot; /&gt;')
@@ -81,13 +89,16 @@ DROP TABLE IF EXISTS rg_fieldset_form
 CREATE TABLE `rg_fieldset_form` (  `fieldset_id` int(10) DEFAULT NULL,  `show_list` tinyint(1) DEFAULT NULL,  `show_info` tinyint(1) DEFAULT NULL,  `list_page` int(5) DEFAULT NULL,  `list_where` varchar(250) DEFAULT NULL,  `list_order` varchar(250) DEFAULT NULL,  `tpl_list` varchar(250) DEFAULT NULL,  `tpl_info` varchar(250) DEFAULT NULL,  `post_status` tinyint(1) DEFAULT NULL,  `post_msg` varchar(250) DEFAULT NULL,  `post_return_url` varchar(250) DEFAULT NULL,  UNIQUE KEY `fieldset_id` (`fieldset_id`) USING BTREE) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='字段集-扩展表单';
 INSERT INTO rg_fieldset_form VALUES('1','1','0','10','','data_id desc','guestbook','guestbook','1','留言发布成功！','')
 DROP TABLE IF EXISTS rg_file
-CREATE TABLE `rg_file` (  `file_id` int(10) NOT NULL AUTO_INCREMENT,  `url` varchar(250) DEFAULT NULL,  `original` varchar(250) DEFAULT NULL,  `title` varchar(250) DEFAULT NULL,  `ext` varchar(250) DEFAULT NULL,  `size` int(10) DEFAULT NULL,  `time` int(10) DEFAULT NULL,  PRIMARY KEY (`file_id`),  KEY `ext` (`ext`),  KEY `time` (`time`) USING BTREE) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='上传文件';
+CREATE TABLE `rg_file` (  `file_id` int(10) NOT NULL AUTO_INCREMENT,  `url` varchar(250) DEFAULT NULL,  `original` varchar(250) DEFAULT NULL,  `title` varchar(250) DEFAULT NULL,  `ext` varchar(250) DEFAULT NULL,  `size` int(10) DEFAULT NULL,  `time` int(10) DEFAULT NULL,  PRIMARY KEY (`file_id`),  KEY `ext` (`ext`),  KEY `time` (`time`) USING BTREE) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='上传文件';
 INSERT INTO rg_file VALUES('1','/upload/2015-03-03/b90c5a8bb400d3d6540484b21b273d47.jpg','/upload/2015-03-03/b90c5a8bb400d3d6540484b21b273d47.jpg','xc02','jpg','60387','1425371941')
 INSERT INTO rg_file VALUES('2','/upload/2015-03-03/0e4f015bea6148b6cde4ab88c6bc5f55.jpg','/upload/2015-03-03/0e4f015bea6148b6cde4ab88c6bc5f55.jpg','1','jpg','9412','1425372049')
 INSERT INTO rg_file VALUES('3','/upload/2015-03-03/bcb5464e43bc5bd4568259e27cedef49.jpg','/upload/2015-03-03/bcb5464e43bc5bd4568259e27cedef49.jpg','newcar','jpg','52453','1425372206')
 INSERT INTO rg_file VALUES('4','/upload/2015-03-03/bf343c36fc9da67b661cc6d9aae14cf3.jpg','/upload/2015-03-03/bf343c36fc9da67b661cc6d9aae14cf3.jpg','2','jpg','8939','1425372227')
 INSERT INTO rg_file VALUES('5','/upload/2015-03-03/0a078720cd860a45661c33414d459091.jpg','/upload/2015-03-03/0a078720cd860a45661c33414d459091.jpg','en_03','jpg','112926','1425372261')
 INSERT INTO rg_file VALUES('6','/upload/2015-03-03/0f1c5218d3fb4e50731c984b5a974998.jpg','/upload/2015-03-03/0f1c5218d3fb4e50731c984b5a974998.jpg','3','jpg','12987','1425372272')
+INSERT INTO rg_file VALUES('7','/upload/2015-03-05/b90c5a8bb400d3d6540484b21b273d47.jpg','/upload/2015-03-05/b90c5a8bb400d3d6540484b21b273d47.jpg','banner1','jpg','60387','1425537391')
+INSERT INTO rg_file VALUES('8','/upload/2015-03-05/bf343c36fc9da67b661cc6d9aae14cf3.jpg','/upload/2015-03-05/bf343c36fc9da67b661cc6d9aae14cf3.jpg','pic-showcase2','jpg','8939','1425537425')
+INSERT INTO rg_file VALUES('9','/upload/2015-03-05/f03fe7f1692473f0e9f0d367690bdef5.jpg','/upload/2015-03-05/f03fe7f1692473f0e9f0d367690bdef5.jpg','pic-showcase4','jpg','11599','1425537507')
 DROP TABLE IF EXISTS rg_fragment
 CREATE TABLE `rg_fragment` (  `fragment_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '文章id',  `label` varchar(250) DEFAULT NULL,  `name` varchar(250) DEFAULT NULL,  `content` text,  PRIMARY KEY (`fragment_id`),  KEY `label` (`label`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='网站碎片';
 DROP TABLE IF EXISTS rg_position
@@ -100,9 +111,11 @@ CREATE TABLE `rg_tags_has` (  `content_id` int(10) DEFAULT NULL,  `tag_id` int(1
 DROP TABLE IF EXISTS rg_total_spider
 CREATE TABLE `rg_total_spider` (  `id` int(10) NOT NULL AUTO_INCREMENT,  `time` int(10) DEFAULT NULL,  `baidu` int(10) DEFAULT '0',  `google` int(10) DEFAULT '0',  `soso` int(10) DEFAULT '0',  PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='蜘蛛统计';
 DROP TABLE IF EXISTS rg_total_visitor
-CREATE TABLE `rg_total_visitor` (  `id` int(10) NOT NULL AUTO_INCREMENT,  `time` int(10) DEFAULT NULL,  `count` int(10) DEFAULT NULL,  PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='访客统计';
+CREATE TABLE `rg_total_visitor` (  `id` int(10) NOT NULL AUTO_INCREMENT,  `time` int(10) DEFAULT NULL,  `count` int(10) DEFAULT NULL,  PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='访客统计';
 INSERT INTO rg_total_visitor VALUES('1','1424793600','4')
 INSERT INTO rg_total_visitor VALUES('2','1424880000','2')
 INSERT INTO rg_total_visitor VALUES('3','1425052800','81')
 INSERT INTO rg_total_visitor VALUES('4','1425225600','11')
-INSERT INTO rg_total_visitor VALUES('5','1425312000','323')
+INSERT INTO rg_total_visitor VALUES('5','1425312000','329')
+INSERT INTO rg_total_visitor VALUES('6','1425398400','2')
+INSERT INTO rg_total_visitor VALUES('7','1425484800','25')
