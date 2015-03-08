@@ -22,7 +22,7 @@
                             <select class="input" name="class_id" id="class_id">
                               <option value="0">选择栏目</option>
                                <!--loop{$categoryList as $vo}-->
-                               <option value="{$vo.class_id}" 
+                               <option value="{$vo.class_id}"
                                <!--if{$pageMaps['class_id'] == $vo['class_id']}-->
                                selected="selected"
                                <!--{/if}-->
@@ -39,7 +39,7 @@
                             <select class="input" name="position_id">
                               <option value="0">选择推荐位</option>
                                <!--loop{$positionList as $vo}-->
-                               <option value="{$vo.position_id}" 
+                               <option value="{$vo.position_id}"
                                <!--if{$pageMaps['position_id'] == $vo['position_id']}-->
                                selected="selected"
                                <!--{/if}-->
@@ -52,12 +52,12 @@
                         <div class="field">
                             <select class="input" name="status">
                               <option value="0">选择状态</option>
-                               <option value="1" 
+                               <option value="1"
                                <!--if{$pageMaps['status'] == 1}-->
                                selected="selected"
                                <!--{/if}-->
                                >发布</option>
-                               <option value="2" 
+                               <option value="2"
                                <!--if{$pageMaps['status'] == 2}-->
                                selected="selected"
                                <!--{/if}-->
@@ -76,13 +76,13 @@
         <table id="table" class="table table-hover ">
             <tbody>
                 <tr>
-                    <th width="60">选择</th>
-                    <th width="100">编号</th>
+                    <th width="50">选择</th>
+                    <th width="60">编号</th>
                     <th width="*">标题</th>
-                    <th width="*">栏目</th>
-                    <th width="*">状态</th>
+                    <th width="170">栏目</th>
+                    <th width="80">状态</th>
                     <th width="160">更新时间</th>
-                    <th width="100">操作</th>
+                    <th width="88">操作</th>
                 </tr>
                 <!--loop{$list as $vo}-->
                 <tr>
