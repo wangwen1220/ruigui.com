@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="home no-js">
+<html class="no-js">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,7 +34,7 @@
 
   <nav id="nav">
     <ul class="g-wrap">
-      <li><a <!--if{!$topCategoryInfo['class_id']}--> class="current" <!--{/if}--> href="__ROOT__/">Home</a></li>
+      <li><a <!--if{!$topCategoryInfo['class_id']}--> class="current" <!--{/if}--> href="/">Home</a></li>
       <!--list{app="DuxCms" label="categoryList" limit=8 parent_id=0}-->
       <li><a href="{$list.curl}" <!--if{$list['class_id']==$topCategoryInfo['class_id']}--> class="current" <!--{/if}-->>{$list.name}</a></li>
       <!--{/list}-->

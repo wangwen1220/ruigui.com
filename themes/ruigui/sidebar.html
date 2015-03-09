@@ -1,9 +1,22 @@
 <div class="m-cats">
+  <h2 class="tt">Categories</h2>
+  <div class="ct cls">
+    <ul>
+      <?php $parent_id = $categoryInfo.parent_id == 0 ? $categoryInfo.class_id : $categoryInfo.parent_id; ?>
+      <!--list{app="DuxCms" label="categoryList" parent_id=$parent_id}-->
+      <li><a href="{$list.curl}" title="{$list.name}">{$list.name}</a></li>
+      <!--{/list}-->
+    </ul>
+  </div>
+</div>
+
+<!--if{$categoryInfo.class_id == 1 || $categoryInfo.parent_id == 1}-->
+<div class="m-cats">
   <h2 class="tt">New Products</h2>
   <div class="ct art">
     <ul>
-      <!--list{app="DuxCms" label="contentList" limit="5" image="true"}-->
-      <li>
+      <!--list{app="DuxCms" label="contentList" limit="5" image="true" class_id="1" sub="true"}-->
+      <li class="clearfix">
         <a href="{$list.aurl}" class="pic"><img src="{$list.image}" width="65" height="43" alt="{$list.title}"></a>
         <h3 class="title"><a href="{$list.aurl}">{$list.title}</a></h3>
       </li>
@@ -20,14 +33,4 @@
     <!--{/list}-->
   </div>
 </div>
-
-<div class="m-cats">
-  <h2 class="tt">Links</h2>
-  <div class="ct link">
-    <ul>
-      <!--list{app="DuxCms" label="formList" table="link" limit="5"}-->
-      <li><a href="{$list.url}" target="_blank">{$list.name}</a></li>
-      <!--{/list}-->
-    </ul>
-  </div>
-</div>
+<!--{/if}-->

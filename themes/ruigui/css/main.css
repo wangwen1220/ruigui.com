@@ -605,14 +605,14 @@ hr, .u-hr {
   color: #666;
 }
 .m-cats > .cls li:hover {
-  /*background: #f9f9f9;*/
+  background: #f9f9f9;
 }
 .m-cats > .cls li:hover:after {
   right: 4px;
 }
 .m-cats > .cls li a {
   display: block;
-  padding-left: 1em;
+  /*padding-left: 1em;*/
   padding-right: 15px;
   height: 100%;
   overflow: hidden;
@@ -635,37 +635,39 @@ hr, .u-hr {
   padding-left: 10px;
 }
 .m-cats > .art li {
-  margin: 5px 0;
+  margin: 10px 0;
+  overflow: hidden;
+  zoom: 1;
 }
 .m-cats > .art .pic {
   float: left;
-  margin-right: 10px;
+  margin-right: 8px;
 }
 .m-cats > .art .pic img {
   width: 60px;
   height: auto;
-  padding: 3px;
+  padding: 2px;
   border: 1px solid #ddd;
 }
-.m-cats > .art .info {
+.m-cats > .art .title {
   overflow: hidden;
   zoom: 1;
+  line-height: 16px;
+  max-height: 48px;
 }
 .m-cats > .tag {
-  padding-top: 15px;
+  margin-top: 15px;
 }
 .m-cats > .tag a {
+  display: inline-block;
+  margin: 0 4px 8px 0;
+  padding: 3px 11px;
+  border: 1px solid #ddd;
   text-transform: capitalize;
   background: #f5f5f5;
-  padding: 4px 12px;
-  border: 1px solid #ddd;
-  zoom: 1;
-  display: inline-block;
-  *display: inline;
-  margin: 0 10px 8px 0;
 }
 .m-cats > .link {
-  padding-top: 10px;
+  margin-top: 10px;
 }
 .m-cats > .link li {
   height: 25px;
@@ -673,6 +675,107 @@ hr, .u-hr {
   float: left;
   width: 50%;
   overflow: hidden;
+}
+
+/*
+@name: m-page
+@overview: 通用分页模块
+@require: null
+*/
+.m-page {
+  margin-left: auto;
+  margin-right: auto;
+  clear: both;
+  overflow: hidden;
+  padding: 20px 0;
+}
+.m-page a {
+  float: left;
+  background: #777;
+  padding: 0 10px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-family: 'Arial';
+  display: block;
+  margin-right: 4px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+.m-page span {
+  float: left;
+  width: 37px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-family: 'Lucida Console';
+  display: block;
+  margin-right: 4px;
+  color: #777;
+}
+.m-page a:hover {
+  background: #cd1a1c;
+}
+.m-page a.prePage, .m-page a.nextPage {
+  font-family: 'Tahoma';
+}
+.m-page .hidden {
+  display: none;
+}
+.m-pg-tt {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  background-color: #fff;
+  padding: 20px;
+}
+.m-pg-info {
+  font-size: 12px;
+  padding: 0px 20px;
+  color: #999;
+  background-color: #fff;
+}
+.m-pg-bd {
+  font-size: 16px;
+  line-height: 30px;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+}
+.m-pg-ln {
+  background-color: #fff;
+  padding: 10px;
+  margin-top: 10px;
+}
+.m-pg-ln span {
+  color: #666;
+}
+.m-pg-ln .last {
+  float: left;
+}
+.m-pg-ln .next {
+  float: right;
+}
+.m-pg-rlt {
+  margin-top: 10px;
+  background-color: #fff;
+  padding: 10px;
+}
+.m-pg-rlt .tt {
+  font-size: 14px;
+  line-height: 30px;
+  font-weight: bold;
+}
+.m-pg-rlt .tt a {
+  color: #cd1a1c;
+}
+.m-pg-rlt .lst {
+  padding-top: 5px;
+}
+.m-pg-rlt .lst li {
+  line-height: 25px;
+  height: 25px;
 }
 
 /* =Layout
@@ -1114,8 +1217,13 @@ html.chrome #header .search select {
   margin-top: 8px;
   color: #666;
 }
-
-
+#homeinfo .info .content li {
+  height: 22px;
+  line-height: 22px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 
 
 .m-sld {
@@ -1371,102 +1479,6 @@ html.chrome #header .search select {
 .m-pg-lst .info .time {
   color: #333;
   line-height: 30px;
-}
-.m-page {
-  margin-left: auto;
-  margin-right: auto;
-  clear: both;
-  overflow: hidden;
-  padding: 20px 0;
-}
-.m-page a {
-  float: left;
-  background: #777;
-  padding-left: 10px;
-  padding-right: 10px;
-  height: 39px;
-  line-height: 39px;
-  text-align: center;
-  font-family: 'Arial';
-  display: block;
-  margin-right: 4px;
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-}
-.m-page span {
-  float: left;
-  width: 37px;
-  height: 39px;
-  line-height: 39px;
-  text-align: center;
-  font-family: 'Lucida Console';
-  display: block;
-  margin-right: 4px;
-  color: #777;
-}
-.m-page a:hover {
-  background: #cd1a1c;
-}
-.m-page a.prePage, .m-page a.nextPage {
-  font-family: 'Tahoma';
-}
-.m-page .hidden {
-  display: none;
-}
-.m-pg-tt {
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 10px;
-  background-color: #fff;
-  padding: 20px;
-}
-.m-pg-info {
-  font-size: 12px;
-  padding: 0px 20px;
-  color: #999;
-  background-color: #fff;
-}
-.m-pg-bd {
-  font-size: 16px;
-  line-height: 30px;
-  color: #333;
-  background-color: #fff;
-  padding: 20px;
-}
-.m-pg-ln {
-  background-color: #fff;
-  padding: 10px;
-  margin-top: 10px;
-}
-.m-pg-ln span {
-  color: #666;
-}
-.m-pg-ln .last {
-  float: left;
-}
-.m-pg-ln .next {
-  float: right;
-}
-.m-pg-rlt {
-  margin-top: 10px;
-  background-color: #fff;
-  padding: 10px;
-}
-.m-pg-rlt .tt {
-  font-size: 14px;
-  line-height: 30px;
-  font-weight: bold;
-}
-.m-pg-rlt .tt a {
-  color: #cd1a1c;
-}
-.m-pg-rlt .lst {
-  padding-top: 5px;
-}
-.m-pg-rlt .lst li {
-  line-height: 25px;
-  height: 25px;
 }
 
 /* TAG 列表 */
