@@ -4,7 +4,7 @@
   <div class="g-mn">
     <div class="m-crumb">
       <ul class="f-cb">
-        <li><a href="__ROOT__/">首页</a></li>
+        <li><a href="/">Home</a></li>
         <!--foreach{$crumb as $vo}-->
         <li><i>&gt;</i><a href="{$vo.url}">{$vo.name}</a></li>
         <!--{/foreach}-->
@@ -22,7 +22,7 @@
       <div class="info">
         <div class="tt"><a href="{$vo.aurl}">{$vo.title}</a></div>
         <div class="dsc">{$vo.description}</div>
-        <div class="time"><span>时间：{date('Y-m-d',$vo['time'])}</span> <span>访问：{$vo.views}</span></div>
+        <div class="time"><span>Time: {date('Y-m-d',$vo['time'])}</span> <span>Views: {$vo.views}</span></div>
       </div>
       <div class="f-cb"></div>
     </div>
@@ -30,10 +30,10 @@
 
     <div class="m-page">{$page} </div>
   </div>
-  <div class="g-sd">
+
+  <sidebar class="g-sd">
     <!--#include file="sidebar.html"-->
-  </div>
-  <div class="f-cb"></div>
+  </sidebar>
 </main>
 
 <!--#include file="footer.html"-->

@@ -4,7 +4,7 @@
   <div class="g-mn">
     <div class="m-crumb">
       <ul class="f-cb">
-        <li><a href="__ROOT__/">首页</a></li>
+        <li><a href="/">Home</a></li>
         <!--foreach{$crumb as $vo}-->
         <li><i>&gt;</i><a href="{$vo.url}">{$vo.name}</a></li>
         <!--{/foreach}-->
@@ -20,10 +20,10 @@
 
     <div class="m-page">{$page} </div>
   </div>
-  <div class="g-sd">
+
+  <sidebar class="g-sd">
     <!--#include file="sidebar.html"-->
-  </div>
-  <div class="f-cb"></div>
+  </sidebar>
 </main>
 
 <!--#include file="footer.html"-->

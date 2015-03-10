@@ -2,7 +2,14 @@
   <h2 class="tt">Categories</h2>
   <div class="ct cls">
     <ul>
-      <?php $parent_id = $categoryInfo.parent_id == 0 ? $categoryInfo.class_id : $categoryInfo.parent_id; ?>
+      <?php
+        $parent_id = $categoryInfo.parent_id;
+        if ($parent_id == null) {
+          $parent_id = 1;
+        } else if ($parent_id == 0) {
+          $parent_id = $categoryInfo.class_id;
+        }
+      ?>
       <!--list{app="DuxCms" label="categoryList" parent_id=$parent_id}-->
       <li><a href="{$list.curl}" title="{$list.name}">{$list.name}</a></li>
       <!--{/list}-->
@@ -10,7 +17,7 @@
   </div>
 </div>
 
-<!--if{$categoryInfo.class_id == 1 || $categoryInfo.parent_id == 1}-->
+<!--if{$categoryInfo.class_id == 1 || $categoryInfo.parent_id == 1 || !$categoryInfo.class_id}-->
 <div class="m-cats">
   <h2 class="tt">New Products</h2>
   <div class="ct art">

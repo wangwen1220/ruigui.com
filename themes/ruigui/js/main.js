@@ -151,6 +151,11 @@
     //   });
     // });
 
+    // 分页改为英文
+    $('.m-page').find('.first-page').text('First')
+      .end().find('.prev-page').text('Prev')
+      .end().find('.next-page').text('Next')
+      .end().find('.last-page').text('Last');
 
     // superslide
     if ($.fn.slide) {

@@ -74,7 +74,7 @@ CREATE TABLE `rg_content` (  `content_id` int(10) NOT NULL AUTO_INCREMENT COMMEN
 INSERT INTO rg_content VALUES('1','5','showcase1','showcase1','0','0','0','1,2','','','1425371820','/upload/2015-03-06/0e4f015bea6148b6cde4ab88c6bc5f55.jpg','','0','1','本站','1','1','','1')
 INSERT INTO rg_content VALUES('2','5','showcase2','showcase2','0','0','0','2','Sumsung,LCD','showcase2 content','1425372120','/upload/2015-03-06/bf343c36fc9da67b661cc6d9aae14cf3.jpg','','0','1','本站','6','1','','1')
 INSERT INTO rg_content VALUES('3','5','showcase3','showcase3','0','0','0','2','Blackberry,iPad,Housing','showcase3 content','1425372240','/upload/2015-03-06/0f1c5218d3fb4e50731c984b5a974998.jpg','','0','1','本站','7','1','','1')
-INSERT INTO rg_content VALUES('4','5','showcase4','showcase4','0','0','0','2','iPhone,Parts','showcase4iPhone Parts','1425620040','/upload/2015-03-06/f03fe7f1692473f0e9f0d367690bdef5.jpg','','0','1','本站','0','1','','1')
+INSERT INTO rg_content VALUES('4','5','showcase4','showcase4','0','0','0','2','iPhone,Parts','showcase4iPhone Parts','1425620040','/upload/2015-03-06/f03fe7f1692473f0e9f0d367690bdef5.jpg','','0','1','本站','20','1','','1')
 INSERT INTO rg_content VALUES('5','21','Company Introduction','Company-Introduction','0','0','0','3','','Ruigui Electronic Firm Of Liwan District in Guangzhou City is located in Guangzhou City and has been a wholesaler of cell phone and tablet spare parts. Now we are expanding business with clients from the USA, Canada, Germany, the UK, France, South Af','1425655740','','','0','1','本站','0','1','','1')
 INSERT INTO rg_content VALUES('6','21','Join','Join','0','0','0','3','','With skilled staff, in-depth knowledge of new generation technology and strong teamwork spirit, we aim to make Ruigui as your first choice for solving your sourcing/OEM/ODM needs. Please contact us for more details. We are sincerely looking forward t','1425655920','','','0','1','本站','0','1','','1')
 INSERT INTO rg_content VALUES('7','22','News1 Onsite Check','News1-Onsite-Check','0','0','0','','','The supplier&#039;s company premises has been checked by Alibaba.com staff to verify onsite operations exist there. A third-party verification company has confirmed the legal existence of the supplier. Learn more about the third party verification ag','1425794040','','','0','1','本站','0','1','','1')
@@ -168,7 +168,7 @@ INSERT INTO rg_tags_has VALUES('3','7')
 DROP TABLE IF EXISTS rg_total_spider
 CREATE TABLE `rg_total_spider` (  `id` int(10) NOT NULL AUTO_INCREMENT,  `time` int(10) DEFAULT NULL,  `baidu` int(10) DEFAULT '0',  `google` int(10) DEFAULT '0',  `soso` int(10) DEFAULT '0',  PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='蜘蛛统计';
 DROP TABLE IF EXISTS rg_total_visitor
-CREATE TABLE `rg_total_visitor` (  `id` int(10) NOT NULL AUTO_INCREMENT,  `time` int(10) DEFAULT NULL,  `count` int(10) DEFAULT NULL,  PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='访客统计';
+CREATE TABLE `rg_total_visitor` (  `id` int(10) NOT NULL AUTO_INCREMENT,  `time` int(10) DEFAULT NULL,  `count` int(10) DEFAULT NULL,  PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='访客统计';
 INSERT INTO rg_total_visitor VALUES('1','1424793600','4')
 INSERT INTO rg_total_visitor VALUES('2','1424880000','2')
 INSERT INTO rg_total_visitor VALUES('3','1425052800','81')
@@ -180,3 +180,4 @@ INSERT INTO rg_total_visitor VALUES('8','1425571200','272')
 INSERT INTO rg_total_visitor VALUES('9','1425657600','1')
 INSERT INTO rg_total_visitor VALUES('10','1425744000','207')
 INSERT INTO rg_total_visitor VALUES('11','1425830400','251')
+INSERT INTO rg_total_visitor VALUES('12','1425916800','161')
