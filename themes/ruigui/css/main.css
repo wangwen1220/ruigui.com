@@ -973,10 +973,16 @@ hr, .u-hr {
   display: table-cell;
   height: 90px;
   vertical-align: middle;
+  text-decoration: none;
 }
 #header .logo img {
   width: auto;
   max-height: 80px;
+}
+#header .logo strong {
+  font-size: 30px;
+  margin-left: 5px;
+  vertical-align: middle;
 }
 #header .search {
   float: right;

@@ -102,7 +102,7 @@
 
     // 添加 hover.css 动画类
     $nav.find('a').not('.current').addClass('hvr-fade');
-    $header.find('.logo').addClass('hvr-buzz-out');
+    // $header.find('.logo').addClass('hvr-buzz-out');
     $header.find('.search button').addClass('hvr-wobble-bottom');
 
     // 返回顶部
@@ -176,7 +176,7 @@
       var styleStr = $footer.attr('style') || '';
       var $holder = $('<div/>');
 
-      $win.on('resize', function() {
+      $win.on('load resize', function() {
         var footerHeight = $footer.outerHeight();
         var winHeight = $win.height();
         // var docHeight = $(document).height();
@@ -200,7 +200,7 @@
             left: 0,
             right: 0,
             bottom: 0
-          }); //.stop().animate({bottom: 0});
+          });
         } else {
           $holder.remove();
           $footer.attr('style', styleStr);
