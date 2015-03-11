@@ -10,9 +10,16 @@
           $parent_id = $categoryInfo.class_id;
         }
       ?>
-      <!--list{app="DuxCms" label="categoryList" parent_id=$parent_id}-->
-      <li><a href="{$list.curl}" title="{$list.name}">{$list.name}</a></li>
-      <!--{/list}-->
+      <!--channel{app="DuxCms" label="categoryList" parent_id=$parent_id}-->
+      <li>
+        <a href="{$channel.curl}" title="{$channel.name}">{$channel.name}</a>
+        <ul>
+          <!--list{app="DuxCms" label="categoryList" parent_id=$channel['class_id']}-->
+          <li><a href="{$list.curl}" title="{$list.name}">{$list.name}</a></li>
+          <!--{/list}-->
+        </ul>
+      </li>
+      <!--{/channel}-->
     </ul>
   </div>
 </div>

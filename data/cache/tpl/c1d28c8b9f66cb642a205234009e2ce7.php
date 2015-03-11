@@ -1,4 +1,4 @@
-<?php exit;?>00145757644718e0785e8c798353dec34d8ca7d7507cs:4493:"a:2:{s:8:"template";s:4429:"<form method="post" class="form-x dux-form form-auto" id="form" action="<?php echo url('site');?>">
+<?php exit;?>0014576200060eb14bf8f45899aa9b9ca14bec332f3ds:4493:"a:2:{s:8:"template";s:4429:"<form method="post" class="form-x dux-form form-auto" id="form" action="<?php echo url('site');?>">
     <div class="panel dux-box  active">
         <div class="panel-head">
             <strong>站点信息</strong>
@@ -91,4 +91,4 @@
         $('#form').duxForm();
     });
 </script>
-";s:12:"compile_time";i:1426040447;}";
+";s:12:"compile_time";i:1426084006;}";

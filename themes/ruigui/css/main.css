@@ -593,21 +593,22 @@ hr, .u-hr {
   font-weight: bold;
   color: #333;
 }
+
 .m-cats > .cls {
   /*margin-top: 5px;*/
   overflow: hidden;
 }
-.m-cats > .cls ul {
+.m-cats > .cls > ul {
   margin-top: -1px;
 }
-.m-cats > .cls li {
+.m-cats > .cls > ul > li {
   position: relative;
   height: 30px;
   line-height: 30px;
   overflow: hidden;
   border-top: 1px dotted #ddd;
 }
-.m-cats > .cls li:after {
+.m-cats > .cls > ul > li:after {
   content: '>';
   position: absolute;
   right: 5px;
@@ -615,13 +616,13 @@ hr, .u-hr {
   font-family: serif;
   color: #666;
 }
-.m-cats > .cls li:hover {
+.m-cats > .cls > ul > li:hover {
   background: #f9f9f9;
 }
-.m-cats > .cls li:hover:after {
+.m-cats > .cls > ul > li:hover:after {
   right: 4px;
 }
-.m-cats > .cls li a {
+.m-cats > .cls > ul > li a {
   display: block;
   /*padding-left: 1em;*/
   padding-right: 15px;
@@ -630,9 +631,13 @@ hr, .u-hr {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.m-cats > .cls .u-crt {
+.m-cats > .cls > ul > li > ul {
+  display: none;
+}
+.m-cats > .cls .current {
   color: #cd1a1c;
 }
+
 .m-cats > .lst {
   padding-top: 5px;
 }
