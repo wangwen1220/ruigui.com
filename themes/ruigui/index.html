@@ -27,9 +27,13 @@
   <!-- showcase -->
   <div id="showcase" class="g-box">
     <ul class="f-tj">
-      <!--list{app="DuxCms" label="contentList" limit="4" pos_id="2" }-->
-      <li><a href="{$list.aurl}" title="{$list.title}"><img src="{$list.image}" width="238" height="184" alt="{$list.title}"></a></li>
+      <!--list{app="DuxCms" label="contentList" limit="16" pos_id="2" }-->
+      <li><a href="{$list.aurl}"><img src="{$list.image}" width="238" height="184" title="{$list.title}" alt="{$list.title}"></a></li>
       <!--{/list}-->
+      <li class="fix"></li>
+      <li class="fix"></li>
+      <li class="fix"></li>
+      <li class="fix"></li>
     </ul>
   </div>
   <!-- /showcase -->
@@ -45,7 +49,7 @@
     <div class="info">
       <h3 class="title">News</h3>
       <ul class="content">
-        <!--list{app="DuxCms" label="contentList" limit="5" parent_id="2"}-->
+        <!--list{app="DuxCms" label="contentList" limit="5" class_id="2" sub="true"}-->
         <li><a href="{$list.aurl}">{$list.title}</a></li>
         <!--{/list}-->
       </ul>

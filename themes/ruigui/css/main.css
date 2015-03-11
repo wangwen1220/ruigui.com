@@ -208,6 +208,16 @@ hr, .u-hr {
   vertical-align: top;
   text-align: left;
 }
+.f-tj > .fix {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  height: 0 !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  visibility: hidden !important;
+  overflow: hidden !important;
+}
 
 /*
 1. text-align-last: justify 目前只有IE支持，标准浏览器需要使用 after 伪类模拟类似效果
@@ -975,13 +985,16 @@ hr, .u-hr {
   vertical-align: middle;
   text-decoration: none;
 }
+#header .logo a:hover {
+  color: #003A95;
+}
 #header .logo img {
   width: auto;
   max-height: 80px;
 }
 #header .logo strong {
+  margin-left: 10px;
   font-size: 30px;
-  margin-left: 5px;
   vertical-align: middle;
 }
 #header .search {
@@ -1182,7 +1195,11 @@ html.chrome #header .search select {
 }
 
 /* showcase */
+#showcase {
+  margin-top: 0;
+}
 #showcase li {
+  margin-top: 10px;
   width: 238px;
   border: 1px #ddd solid;
   background: #fff;
