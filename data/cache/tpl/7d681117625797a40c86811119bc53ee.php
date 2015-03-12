@@ -1,4 +1,4 @@
-<?php exit;?>001457618153da458d142cbdde69bbf55b23d12297f8s:2354:"a:2:{s:8:"template";s:2290:"<!doctype html>
+<?php exit;?>0014576819886269028e3d765fe5f1192ca0db70c4b5s:2354:"a:2:{s:8:"template";s:2290:"<!doctype html>
 <html class="no-js">
 <head>
   <meta charset="utf-8">
@@ -42,4 +42,4 @@
       <!-- <li><a href='<?php echo url("DuxCms/Form/index",array("name"=>'guestbook'));?>'>留言板</a></li> -->
     </ul>
   </nav>
-";s:12:"compile_time";i:1426082153;}";
+";s:12:"compile_time";i:1426145988;}";

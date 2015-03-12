@@ -1,25 +1,19 @@
 <!--#include file="header.html"-->
 
 <main id="main" class="g-wrap">
-  <div class="g-mn">
-    <div class="m-crumb">
-      <ul class="f-cb">
-        <li><a href="/">Home</a></li>
-        <!--foreach{$crumb as $vo}-->
-        <li><i>&gt;</i><a href="{$vo.url}">{$vo.name}</a></li>
-        <!--{/foreach}-->
-      </ul>
-    </div>
-
-    <div class="m-pg-tt">{$categoryInfo.name}</div>
-    <div class="m-pg-bd">
-      {$categoryInfo.content}
-    </div>
+  <div class="m-crumb">
+    <ul class="f-cb">
+      <li><a href="/">Home</a></li>
+      <!--foreach{$crumb as $vo}-->
+      <li><i>&gt;</i><a href="{$vo.url}">{$vo.name}</a></li>
+      <!--{/foreach}-->
+    </ul>
   </div>
 
-  <sidebar class="g-sd">
-    <!--#include file="sidebar.html"-->
-  </sidebar>
+  <div class="m-pg-tt">{$categoryInfo.name}</div>
+  <div class="m-pg-bd">
+    {$categoryInfo.content}
+  </div>
 </main>
 
 <!--#include file="footer.html"-->

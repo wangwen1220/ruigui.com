@@ -1,4 +1,4 @@
-<?php exit;?>001457618155ad576fd471e76070721eba34fe657f48s:1377:"a:2:{s:8:"template";s:1313:"<?php $__Template->display("themes/ruigui/header"); ?>
+<?php exit;?>00145768201812416407f0dde027fa49311aedc3b282s:1377:"a:2:{s:8:"template";s:1313:"<?php $__Template->display("themes/ruigui/header"); ?>
 
 <main id="main" class="g-wrap">
   <div class="g-mn">
@@ -38,4 +38,4 @@
 </main>
 
 <?php $__Template->display("themes/ruigui/footer"); ?>
-";s:12:"compile_time";i:1426082155;}";
+";s:12:"compile_time";i:1426146018;}";

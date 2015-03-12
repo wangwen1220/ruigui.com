@@ -1,17 +1,9 @@
-<?php exit;?>00145761978114d34b7b401b9e998b004b8243e231b5s:2301:"a:2:{s:8:"template";s:2237:"<div class="m-cats">
+<?php exit;?>0014576819885b90cd3ccfad17c64b5f762e553d42d7s:2033:"a:2:{s:8:"template";s:1969:"<div class="m-cats">
   <h2 class="tt">Categories</h2>
   <div class="ct cls">
     <ul>
-      <?php
-        $parent_id = $categoryInfo["parent_id"];
-        if ($parent_id == null) {
-          $parent_id = 1;
-        } else if ($parent_id == 0) {
-          $parent_id = $categoryInfo["class_id"];
-        }
-      ?>
-      <?php $channelList = service("duxcms","Label","categoryList",array( "app"=>"DuxCms", "label"=>"categoryList", "parent_id"=>$parent_id));  if(is_array($channelList)) foreach($channelList as $channel){ ?>
-      <li>
+      <?php $channelList = service("duxcms","Label","categoryList",array( "app"=>"DuxCms", "label"=>"categoryList", "parent_id"=>1));  if(is_array($channelList)) foreach($channelList as $channel){ ?>
+      <li<?php if ($channel["class_id"] == $categoryInfo["class_id"]){ ?> class="current" <?php } ?>>
         <a href="<?php echo $channel["curl"];?>" title="<?php echo $channel["name"];?>"><?php echo $channel["name"];?></a>
         <ul>
           <?php $listList = service("duxcms","Label","categoryList",array( "app"=>"DuxCms", "label"=>"categoryList", "parent_id"=>$channel['class_id']));  if(is_array($listList)) foreach($listList as $list){ ?>
@@ -24,7 +16,6 @@
   </div>
 </div>
 
-<?php if ($categoryInfo["class_id"] == 1 || $categoryInfo["parent_id"] == 1 || !$categoryInfo["class_id"]){ ?>
 <div class="m-cats">
   <h2 class="tt">New Products</h2>
   <div class="ct art">
@@ -46,5 +37,4 @@
     <a href="<?php echo $list["url"];?>"><?php echo $list["name"];?></a>
     <?php } ?>
   </div>
-</div>
-<?php } ?>";s:12:"compile_time";i:1426083781;}";
+</div>";s:12:"compile_time";i:1426145988;}";

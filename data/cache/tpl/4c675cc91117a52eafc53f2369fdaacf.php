@@ -1,4 +1,4 @@
-<?php exit;?>0014576181536b72fdde07d20445a96ccf6750a06a71s:2772:"a:2:{s:8:"template";s:2708:"<?php $__Template->display("themes/ruigui/header"); ?>
+<?php exit;?>001457690241f4c58473c0288eefbb57afffe556ecbes:3157:"a:2:{s:8:"template";s:3093:"<?php $__Template->display("themes/ruigui/header"); ?>
 
 <main id="main" class="g-wrap">
   <!-- banner -->
@@ -38,12 +38,20 @@
   </div>
   <!-- /showcase -->
 
+  <!-- recommend -->
+  <div id="recommend" class="g-box">
+    <?php $listList = service("article","Label","contentList",array( "app"=>"Article", "label"=>"contentList", "limit"=>"100", "pos_id"=>"1"));  if(is_array($listList)) foreach($listList as $list){ ?>
+    <div class="item"><?php echo html_out($list["content"]);?></div>
+    <?php } ?>
+  </div>
+  <!-- /recommend -->
+
   <!-- homeinfo -->
   <div id="homeinfo" class="g-box f-tj">
     <?php $listList = service("article","Label","contentList",array( "app"=>"Article", "label"=>"contentList", "limit"=>"2", "pos_id"=>"3", "order"=>"class_id desc"));  if(is_array($listList)) foreach($listList as $list){ ?>
     <div class="info">
       <h3 class="title"><?php echo $list["title"];?></h3>
-      <p class="content"><?php echo $list["content"];?></p>
+      <p class="content"><?php echo html_out($list["content"]);?></p>
     </div>
     <?php } ?>
     <div class="info">
@@ -59,4 +67,4 @@
 </main>
 
 <?php $__Template->display("themes/ruigui/footer"); ?>
-";s:12:"compile_time";i:1426082153;}";
+";s:12:"compile_time";i:1426154241;}";

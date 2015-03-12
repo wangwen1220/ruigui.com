@@ -38,12 +38,20 @@
   </div>
   <!-- /showcase -->
 
+  <!-- recommend -->
+  <div id="recommend" class="g-box">
+    <!--list{app="Article" label="contentList" limit="100" pos_id="1" }-->
+    <div class="item">{html_out($list.content)}</div>
+    <!--{/list}-->
+  </div>
+  <!-- /recommend -->
+
   <!-- homeinfo -->
   <div id="homeinfo" class="g-box f-tj">
     <!--list{app="Article" label="contentList" limit="2" pos_id="3" order="class_id desc"}-->
     <div class="info">
       <h3 class="title">{$list.title}</h3>
-      <p class="content">{$list.content}</p>
+      <p class="content">{html_out($list.content)}</p>
     </div>
     <!--{/list}-->
     <div class="info">

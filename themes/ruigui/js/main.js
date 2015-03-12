@@ -170,6 +170,9 @@
       });
     }
 
+    // 删除空三级菜单标签
+    $main.find('.m-cats ul:not(:has(li))').remove();
+
     // 页脚固底
     (function() {
       // var $footer = $('#footer');

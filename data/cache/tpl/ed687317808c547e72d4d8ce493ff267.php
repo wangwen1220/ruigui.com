@@ -1,4 +1,4 @@
-<?php exit;?>00145761815339add71005ded500bbbdb23b42846f41s:827:"a:2:{s:8:"template";s:764:"  <footer id="footer" class="g-wrap">
+<?php exit;?>0014576819887e3ef19448f36bf6102be5dd858f7200s:827:"a:2:{s:8:"template";s:764:"  <footer id="footer" class="g-wrap">
     <?php $echoList = service("duxcms","Label","fragment",array( "app"=>"DuxCms", "label"=>"fragment", "mark"=>"foot"));  echo $echoList; ?>
 
     <nav>
@@ -16,4 +16,4 @@
   <!-- 统计代码 -->
   <?php echo $sys["site_statistics"];?>
 </body>
-</html>";s:12:"compile_time";i:1426082153;}";
+</html>";s:12:"compile_time";i:1426145988;}";
