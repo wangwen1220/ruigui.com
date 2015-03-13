@@ -70,7 +70,7 @@ class ContentModel extends BaseModel {
                     ->where($where)
                     ->count();
     }
-    
+
     /**
      * 获取信息
      * @param array $where 条件
@@ -195,7 +195,7 @@ class ContentModel extends BaseModel {
             }else{
                 $type = 'add';
             }
-            
+
             if(!$expandModel->saveData($type,$fieldsetInfo)){
                 $this->error = $expandModel->getError();
                 return false;
@@ -250,7 +250,7 @@ class ContentModel extends BaseModel {
                 //查找关联
                 $where = array();
                 $where['content_id'] = $contentId;
-                $where['tag_id'] = $info['id'];
+                $where['tag_id'] = $info['tag_id'];
                 $infoHas = $TagsHasModel->countList($where);
                 //添加关联
                 if (!$infoHas) {

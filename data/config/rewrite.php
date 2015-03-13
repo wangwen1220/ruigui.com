@@ -5,7 +5,7 @@ return array(
         // 'list-<class_id>.html' => 'article/Category/index',
         '<urlname>.html' => 'article/Category/index',
         // 'page-<class_id>.html' => 'page/Category/index',
-        '<urlname>' => 'page/Category/index',
+        '<urlname>.html' => 'page/Category/index',
         // 'article/<content_id>.html' => 'article/Content/index',
         'product/<urltitle> <content_id>.html' => 'article/Content/index',
         'form-<name>/<id>.html' => 'duxcms/Form/info',

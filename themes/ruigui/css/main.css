@@ -1145,6 +1145,7 @@ html.chrome #header .search select {
 /* banner */
 #banner {
   position: relative;
+  padding: 3px;
   height: 320px;
   overflow: hidden;
   /*border: 1px #ddd solid;*/
@@ -1227,17 +1228,39 @@ html.chrome #header .search select {
 #showcase li {
   margin-top: 10px;
   width: 238px;
+  /*background: #fff;*/
+}
+#showcase li .pic {
+  display: block;
+  width: 230px;
+  padding: 3px;
   border: 1px #ddd solid;
   background: #fff;
 }
-#showcase li:hover {
+#showcase li .pic:hover {
   /*border-color: #c7c7c7;*/
-  outline: 2px #ccc solid;
+  outline: 2px #ddd solid;
+  transform: scale(1.2);
 }
-#showcase li img {
+#showcase li .pic img {
   display: block;
-  width: 238px;
+  width: 100%;
   height: auto;
+}
+#showcase li .name {
+  margin-top: 5px;
+  padding: 0 5px;
+  max-height: 40px;
+  line-height: 20px;
+  overflow: hidden;
+  color: #333;
+}
+#showcase li .price {
+  margin: 0 0 5px;
+  padding: 0 5px;
+  font-family: verdana;
+  color: #CD1A1C;
+  font-weight: bold;
 }
 
 /* homeinfo */
