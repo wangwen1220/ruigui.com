@@ -1,0 +1,77 @@
+<!--#include file="header.html"-->
+
+<main id="main" class="g-wrap">
+  <!-- banner -->
+  <div id="banner">
+    <div class="hd">
+      <ul>
+        <!--list{app="DuxCms" label="categoryList" limit="99"}-->
+        <!--if{$list.image}-->
+        <li>{$list.i + 1}</li>
+        <!--{/if}-->
+        <!--{/list}-->
+      </ul>
+    </div>
+    <div class="bd">
+      <ul>
+        <!--list{app="DuxCms" label="categoryList" limit="99"}-->
+        <!--if{$list.image}-->
+        <li><a href="{$list.curl}" title="{$list.name}"><img src="{$list.image}" width="1000" height="320" alt="{$list.name}"></a></li>
+        <!--{/if}-->
+        <!--{/list}-->
+      </ul>
+    </div>
+    <div class="nav">
+      <a class="prev"></a>
+      <a class="next"></a>
+    </div>
+  </div>
+  <!-- /banner -->
+
+  <!-- showcase -->
+  <div id="showcase" class="g-box">
+    <ul class="f-tj">
+      <!--list{app="DuxCms" label="contentList" limit="16" pos_id="2" expand_id="1"}-->
+      <li>
+        <a href="{$list.aurl}" class="pic"><img src="{$list.image}" width="238" height="184" title="{$list.title}" alt="{$list.title}"></a>
+        <h3 class="name"><a href="{$list.aurl}">{$list.title}</a></h3>
+        <div class="price">{$list.price}</div>
+      </li>
+      <!--{/list}-->
+      <li class="fix"></li>
+      <li class="fix"></li>
+      <li class="fix"></li>
+      <li class="fix"></li>
+    </ul>
+  </div>
+  <!-- /showcase -->
+
+  <!-- recommend -->
+  <div id="recommend" class="g-box">
+    <!--list{app="Article" label="contentList" limit="100" pos_id="1" }-->
+    <div class="item">{html_out($list.content)}</div>
+    <!--{/list}-->
+  </div>
+  <!-- /recommend -->
+
+  <!-- homeinfo -->
+  <div id="homeinfo" class="g-box f-tj">
+    <!--list{app="Article" label="contentList" limit="2" pos_id="3" order="class_id desc"}-->
+    <div class="info">
+      <h3 class="title">{$list.title}</h3>
+      <p class="content">{html_out($list.content)}</p>
+    </div>
+    <!--{/list}-->
+    <div class="info">
+      <h3 class="title">News</h3>
+      <ul class="content">
+        <!--list{app="DuxCms" label="contentList" limit="5" class_id="2" sub="true"}-->
+        <li><a href="{$list.aurl}">{$list.title}</a></li>
+        <!--{/list}-->
+      </ul>
+    </div>
+  </div>
+  <!-- /homeinfo -->
+</main>
+
+<!--#include file="footer.html"-->

@@ -5,15 +5,19 @@
   <div id="banner">
     <div class="hd">
       <ul>
-        <!--list{app="DuxCms" label="categoryList" limit="5" parent_id="1" class_id="5,6,7"}-->
+        <!--list{app="DuxCms" label="categoryList" limit="99"}-->
+        <!--if{$list.image}-->
         <li>{$list.i + 1}</li>
+        <!--{/if}-->
         <!--{/list}-->
       </ul>
     </div>
     <div class="bd">
       <ul>
-        <!--list{app="DuxCms" label="categoryList" limit="5" parent_id="1" class_id="5,6,7"}-->
+        <!--list{app="DuxCms" label="categoryList" limit="99"}-->
+        <!--if{$list.image}-->
         <li><a href="{$list.curl}" title="{$list.name}"><img src="{$list.image}" width="1000" height="320" alt="{$list.name}"></a></li>
+        <!--{/if}-->
         <!--{/list}-->
       </ul>
     </div>
@@ -27,11 +31,11 @@
   <!-- showcase -->
   <div id="showcase" class="g-box">
     <ul class="f-tj">
-      <!--list{app="DuxCms" label="contentList" limit="16" pos_id="2" expand_id="1"}-->
+      <!--list{app="DuxCms" label="contentList" limit="16" pos_id="2" }-->
       <li>
         <a href="{$list.aurl}" class="pic"><img src="{$list.image}" width="238" height="184" title="{$list.title}" alt="{$list.title}"></a>
         <h3 class="name"><a href="{$list.aurl}">{$list.title}</a></h3>
-        <div class="price">{$list.price}</div>
+        <div class="price">{$list.description}</div>
       </li>
       <!--{/list}-->
       <li class="fix"></li>

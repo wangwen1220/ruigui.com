@@ -11,23 +11,25 @@
       </ul>
     </div>
 
-    <!--foreach{$pageList as $vo}-->
-    <div class="m-pg-lst">
-      <div class="pic">
-      <!--if{$vo['image']}-->
-      <img src="{$vo.image}" width="120" height="80">
-      <!--{else}-->
-      <img src="images/fm.jpg" width="120" height="80">
-      <!--{/if}-->
+    <div id="prolist">
+     <!--foreach{$pageList as $vo}-->
+      <div class="m-pg-lst">
+        <div class="pic">
+        <!--if{$vo['image']}-->
+        <img src="{$vo.image}" width="120" height="80">
+        <!--{else}-->
+        <img src="images/fm.jpg" width="120" height="80">
+        <!--{/if}-->
+        </div>
+        <div class="info">
+          <div class="tt"><a href="{$vo.aurl}">{$vo.title}</a></div>
+          <div class="dsc">{$vo.description}</div>
+          <div class="time"><span>Time: {date('Y-m-d',$vo['time'])}</span> <span>Views: {$vo.views}</span></div>
+        </div>
+        <div class="f-cb"></div>
       </div>
-      <div class="info">
-        <div class="tt"><a href="{$vo.aurl}">{$vo.title}</a></div>
-        <div class="dsc">{$vo.description}</div>
-        <div class="time"><span>Time: {date('Y-m-d',$vo['time'])}</span> <span>Views: {$vo.views}</span></div>
-      </div>
-      <div class="f-cb"></div>
+      <!--{/foreach}-->
     </div>
-    <!--{/foreach}-->
 
     <div class="m-page">{$page} </div>
   </div>
